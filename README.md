@@ -1,70 +1,125 @@
-# Getting Started with Create React App
+# Wolox - Interview
+(13/12/2020)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## This is a technical React challenge provided by Wolox 
 
-## Available Scripts
+## INFO (ES):
 
-In the project directory, you can run:
+### Introducción
 
-### `npm start`
+La finalidad del ejercicio es desarrollar una aplicación web. La web consiste en una
+página inicial o landing page (cuyo diseño y assets se te enviarán en conjunto con
+este ejercicio), una pantalla de registro y un listado de tecnologías con filtros. El
+registro y el listado no tienen un diseño definido, por lo cual esperamos que lo hagas
+por tu cuenta, y si bien no esperamos un diseño superador, si es deseable que sean
+pantallas usables. Para obtener los datos tanto del registro como del listado,
+tenemos la siguiente API.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Esperamos que el código esté en un repositorio de git, en el cual haya al menos un
+commit por pantalla.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+### Requerimientos y Restricciones
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+● No utilizar Bootstrap ni ninguna librería con clases de CSS predefinidas.
+● Utilizar flexbox como principal herramienta para definir el layout (no usar
+tablas).
+● Hacer responsive las pantallas hasta 300px.
+● Configurar un linter.
+● Los botones deben tener algún efecto en hover.
+● Utilizar al menos alguna animación.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Opcionales
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+● Utilizar SCSS y/o SCSS modules
+● Utilizar CSS Grid
+● Hacer la web accesible
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### Landing
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Criterios de aceptación
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+● Respetar el diseño enviado.
+● Al seleccionar un link de la barra superior, se debe scrollear a la sección
+correspondiente.
+● Al clickear el botón de “Síguenos” debe enviar el usuario al twitter de Wolox.
+● El botón de “Conocer más” debe enviar al usuario a la página de Wolox.
+● El botón de Registrarse debe enviar al usuario a la pantalla de Registro. (En el
+diseño este botón aparece como Login, no es necesario hacer el login de la
+aplicación)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Registro
 
-## Learn More
+Criterios de aceptación
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+● Se deberán enviar al endpoint los siguientes campos: nombre, apellido, país,
+provincia (Departamento), email, teléfono y contraseña.
+● El nombre y apellido deben ser 2 campos distintos. Cada uno con un máximo
+de 30 caracteres.
+● Los países deben ser un listado de mínimo 5 elementos. Ejemplo: Argentina,
+Chile, Colombia, México, Perú.
+● Las provincias deben ser listados de mínimo 5 elementos, relacionados con los
+países. Es decir, solo se deben ver las 5 provincias del país seleccionado
+Ejemplo:
+○ Si seleccionó como país a Argentina, las provincias que se deberían
+desplegar son: Buenos Aires, Córdoba, Santa Fe, Mendoza y Chaco.
+○ Si seleccionó como país a Colombia, las provincias que se deberían
+desplegar son: Bolívar, Boyacá, Caldas, Cauca y Magdalena.
+Nota: Las provincias pueden no ser reales. Pero deben ser diferentes para
+cada país.
+● El email debe tener un formato válido.
+● El teléfono debe aceptar solo valores numéricos y un máximo de 10 caracteres.
+● La contraseña debe ser alfanumérica con un mínimo de 6 caracteres.
+● Debe existir un campo para repetir la contraseña, el cual no será enviado a la
+api, pero deberá ser igual a la contraseña.
+● Debe existir un checkbox de “Acepto Términos y Condiciones” con un link a
+una página de términos y condiciones que se encontrara en TODO.
+● El usuario registrado debe ser guardado en LocalStorage, y la próxima vez que
+el usuario se conecte debe ingresar directamente al listado. El usuario no
+deberá poder ir a la pantalla de registro, siendo redirigido al listado. En la
+Landing no debe verse el botón de Registro.
+● Todos los campos son requeridos. En caso de que alguno no cumpla con las
+validaciones el botón para submitear quedará deshabilitado y se le deberá dar
+feedback al usuario de qué validación no está cumpliendo.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+### Listado
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Criterios de aceptación
 
-### Analyzing the Bundle Size
+● Listar los elementos retornados por el endpoint con todos sus datos.
+● Poder filtrar los elementos por nombre y por si son Front-end, Back-end o
+Mobile, cambiando el resultado a medida que se tipea. Si el filtro está vacío se
+deben mostrar todos los elementos.
+● Poder ordenar los elementos por nombre, tanto ascendente como
+descendentemente.
+● No usar paginación.
+● Mostrar debajo del listado la suma total de tecnologías siendo mostrada.
+● Cada tecnología debe contar con una opción de favorito o me gusta, que
+permita indicar si la tecnología es del agrado del usuario. La selección de las
+mismas deben quedar persistidas en LocalStorage.
+● En el navbar deben aparecer la cantidad de tecnologías seleccionadas como
+favoritas cuando por lo menos una se encuentre seleccionada, es decir, si no
+se ha seleccionado ninguna no debe aparecer nada.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+### React
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Criterios de aceptación
 
-### Advanced Configuration
+● Implementar una solución de routing para poder marcar con un flag rutas
+privadas y que el usuario no conectado no pueda acceder a ellas.
+● Usar un state management a eleccion propia (Redux/Context/Recoil/etc).
+● Implementar test de componente de listado con Jest y react testing library.
+● Implementar lazy loading por screen con React.Lazy y React.Suspense.
+● Utilizar react hooks.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Como requerimientos opcionales se establecen los siguientes:
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+● Utilizar i18n para todos los textos de la landing y agregar un botón para
+cambiar de idioma (español/inglés).
+● Utilizar Error Boundaries.
+● Hacer deploy la aplicación a un ambiente símil productivo.

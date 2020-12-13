@@ -1,11 +1,5 @@
-import Landing from "./Components/Landing/Landing";
-
 function App() {
-  return (
-    <div>
-      <Landing />
-    </div>
-  );
+  return <div></div>;
 }
 
 export default App;
