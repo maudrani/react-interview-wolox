@@ -1,0 +1,45 @@
+/* body {
+    background-image: url('../../Assets/LandingV3.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+} */
+
+.nav-hero-screen {
+    background-image: url('../../Assets/Backgrounds/Bg_Header@3x.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include griding(23vh 77vh, 1fr);
+
+    opacity: 100%;
+
+}
+
+.hero {
+    @include griding(1fr, 55.8% 44.2%);
+
+    @media (max-width: $tablet-max) {
+        @include griding(1fr, repeat(auto-fit, minmax($tablet-max, 1fr)));
+    }
+
+    .enunciate-big {
+        height: 52%;
+        width: 85%;
+        padding: 0rem 5.9rem;
+        font-size: 2.95rem;
+    }
+
+    .img-container {
+        width: 100%;
+    }
+
+    .img-hero {
+        transform: scaleX(-1);
+        padding-left: 5.9rem;
+        width: 83.5%;
+
+        @media screen and (max-width: 1200px) {
+            background: red;
+        }
+    }
+}

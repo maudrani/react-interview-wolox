@@ -1,0 +1,64 @@
+//Colors
+
+$wolox-blue: #00A7E8;
+$wolox-green: #9FC739;
+$wolox-dark: #1B263C;
+$white: white;
+
+$colors: (blue: $wolox-blue,
+    green: $wolox-green,
+    dark: $wolox-dark,
+    white:white,
+);
+
+
+
+
+
+//Fonts
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$font-family: 'Montserrat';
+
+$font-weight-5: 400;
+$font-weight-4: 500;
+$font-weight-3: 600;
+$font-weight-2: 700;
+$font-weight-1: 800;
+
+$font-weights: (fw-5:$font-weight-5,
+    fw-4:$font-weight-4,
+    fw-3:$font-weight-3,
+    fw-2:$font-weight-2,
+    fw-1:$font-weight-1,
+);
+
+$font-sizes: (fs-5:2rem,
+    fs-4:3rem,
+    fs-3:3.7rem,
+    fs-2:5rem,
+    fs-1:6rem,
+);
+
+
+//Responsive
+$mobile-min: 300px;
+$mobile-max: 480px;
+
+$tablet-min: 481px;
+$tablet-max: 768px;
+
+$laptop-min: 769px;
+$laptop-max: 1024px;
+
+$desktop-min: 1025px;
+$desktop-max: 1200px;
+
+$tv-min: 1201px;
+
+
+
+
+
+//Animations
+$transition-main: 0.20s;
