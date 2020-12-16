@@ -1,15 +1,23 @@
-//Data
-@import './Data/globalValues';
-@import './Data/mixin';
-@import './Data/globalClasses';
-@import './Data/globalRules';
+// 1-Helpers
+@import './1-Helpers/variables';
+@import './1-Helpers/mixin';
+@import './1-Helpers/functions';
+
+// 2-Tools
+@import './2-Tools/position-generator';
+@import './2-Tools/mockuping';
+
+// 3-Basics
+@import './3-Basics/global';
+@import './3-Basics/buttons';
+@import './3-Basics//typography';
 
 
-//Landing modules
+
+//Landing 
 @import './Landing/navbar';
 @import './Landing/social-media';
 @import './Landing/hero';
 @import './Landing/promo';
-@import './Landing/benefits-promo';
+@import './Landing/benefits';
 @import './Landing/footer';
-

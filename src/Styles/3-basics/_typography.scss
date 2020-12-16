@@ -1,0 +1,34 @@
+//Generated Classes
+
+// 'fw' font-weight
+@each $name,
+$weight in $font-weights {
+    .#{$name} {
+        font-weight: $weight;
+    }
+}
+
+// 'fc' font-color
+@each $name,
+$color in $colors {
+    .fc-#{$name} {
+        color: $color;
+    }
+}
+
+// 'fs' font-size
+
+@each $name,
+$size in $font-sizes {
+    .#{$name} {
+        font-size: $size;
+    }
+}
+
+
+
+
+
+
+
+

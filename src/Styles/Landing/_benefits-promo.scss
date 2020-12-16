@@ -1,8 +1,0 @@
-.benefit-list {
-    width: 100%;
-    @include griding(1fr, repeat(auto-fit, minmax(11rem, 1fr)));
-}
-
-.benefit {
-    margin: 1rem;
-}

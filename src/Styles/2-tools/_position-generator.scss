@@ -1,0 +1,16 @@
+//FlexBox
+
+@each $d-abrev,
+$direction-value in $f-direction {
+
+    @each $j-abrev,
+    $justify-value in $justify-content {
+
+        @each $a-abrev,
+        $align-value in $align-items {
+            .#{$d-abrev}-#{$j-abrev}-#{$a-abrev} {
+                @include flex($direction-value, $justify-value, $align-value);
+            }
+        }
+    }
+};

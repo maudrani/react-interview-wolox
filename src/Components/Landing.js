@@ -1,22 +1,18 @@
 import React from "react";
-import NavBar from "./NavBar/NavBar";
-import Hero from "./Hero/Hero";
-import Promo from "./Promo/Promo";
-import BenefitsPromo from "./Benefits/BenefitsPromo";
-import Footer from "./Footer/Footer";
-
-import landingMockup from "../Assets/LandingV3.png";
+import NavBar from "./navbar/NavBar";
+import Hero from "./hero/Hero";
+import Promo from "./promo/Promo";
+import Benefits from "./benefits/Benefits";
+import Footer from "./footer/Footer";
 
 const Landing = () => {
   return (
     <div>
-      <div className="nav-hero-screen">
-        <NavBar />
-        <Hero />
-      </div>
+      <NavBar />
+{/*       <Hero />
       <Promo />
-      <BenefitsPromo />
-      {/* <Footer /> */}
+      <Benefits />
+      <Footer /> */}
     </div>
   );
 };

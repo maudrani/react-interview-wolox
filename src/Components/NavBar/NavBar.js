@@ -1,27 +1,18 @@
 import React from "react";
-import logo from "../../Assets/logo_full_color.svg";
+import WxButton from "../basics/WxButton";
+import Title from "../basics/Title";
 
 const NavBar = () => {
   return (
-    <div className="navbar">
-      <div className="row-flex-start-center">
-        <img src={logo} alt="logo" />
-      </div>
-
-      <div className="options row-flex-end-center">
-        <ul className="row-space-between-center">
-          <li className="">
-            <a href="#Inicio">Inicio</a>
-          </li>
-          <li className="">
-            <a href="#Benefits">Beneficios</a>
-          </li>
-          <li>
-            <button className="btn-blue-outline nav-btn">Registro</button>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <p>
+      <Title 
+        size='2'
+        color='green'
+        weight='4'
+        /* content={'Bienvenido a tu -green-4-5[Entrevista Técnica] en -blue-4-5[Wolox]'} */
+        content='Bienvenido a tu reino pa'
+      />
+    </p>
   );
 };
 

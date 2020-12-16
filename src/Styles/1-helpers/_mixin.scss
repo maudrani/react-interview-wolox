@@ -1,4 +1,4 @@
-@mixin flexThis($direction: row, $justify: center, $align: center) {
+@mixin flex($direction: row, $justify: center, $align: center) {
     display: flex;
     flex-direction: $direction;
     justify-content: $justify;
@@ -34,12 +34,12 @@
         }
     }
 
-    @include flexThis();
+    @include flex();
 
     padding: 0.7rem 4rem;
     border: 2px solid $color;
     border-radius: 8vh;
-    font-size: 16px;
+    font-size: 1rem;
 
     &:hover {
         cursor: pointer;
