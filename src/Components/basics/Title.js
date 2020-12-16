@@ -1,29 +1,47 @@
-import { text } from "@fortawesome/fontawesome-svg-core";
 import React from "react";
 
 const Title = ({ content = "", size = 5, weight = 4, color = "dark" }) => {
+  let customContentFinder = new RegExp(/\w+-\w\[.*?\]/, "gmi");
+  let stylesFinder = new RegExp(/(?<=)\w+-./, "gmi");
+  let textsFinder = new RegExp(/(?<=\[)(.*?)(?=\])/, "gmi");
 
-  let classSearcher = new RegExp(/(?<=-)\w+-\w+-\w+/, "gmi");
-  let contentSearcher = new RegExp(/(?<=\[)(.*?)(?=\])/, "gmi");
-  let contentCleaner = new RegExp(/(\[)|(\])|(-)/, "gmi");
+  function isCustomContent(content = "") {
+    return content.match(customContentFinder) !== null ? true : false;
+  }
 
-  let contentsArray = content.match(contentSearcher);
-  let classesArray = content.match(classSearcher);
+  function decodeStyle(codedStyle = "") {
+    let decodedStyle = codedStyle.replace(/-/, " fw-").replace(/^/, "fc-");
 
-  const parseClass = (clase = "") => {
-    const classData = clase.split("-");
-    return `fc-${classData[0]} fw-${classData[1]} fs-${classData[2]}`;
+    return decodedStyle;
+  }
+
+  const createElementNormal = (content = "") => {
+    return (
+      <span className={`fs-${size} fw-${weight} fc-${color}`}>{content}</span>
+    );
   };
 
-  const spanGenerator = () => {
-   
+  const createCustomElement = (content = "") => {
+    const codedStyles = content.match(stylesFinder);
+    const codedTexts = content.match(textsFinder);
+
+    return (
+      <span className={`fs-${size}`}>
+        {" "}
+        {codedTexts.map((text, id) => {
+          return (
+            <span key={id} className={decodeStyle(codedStyles[id])}>
+              {text}
+            </span>
+          );
+        })}{" "}
+      </span>
+    );
   };
 
-  return (
-    <span className={`fs-${size} fw-${weight} fc-${color}`}>
-      {content}
-    </span>
-  );
+  return isCustomContent(content)
+    ? createCustomElement(content)
+    : createElementNormal(content);
 };
 
 export default Title;
