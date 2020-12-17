@@ -4,7 +4,7 @@ import BenefitList from "./benefit-list";
 
 const Benefit = () => {
   return (
-    <div class="benefits">
+    <div className="benefits">
       <div className="container c-sa-c ">
         <WxText
           className=" promo-title"

@@ -11,7 +11,7 @@ const Hero = () => {
             size="3"
             weight="4"
             className="title"
-            content="dark-[Bienvenido a tu ] blue-1[Entrevista Técnica ] dark-[en ] green-1[Wolox]"
+            content="dark-[Bienvenido a tu ] dark-1[Entrevista Técnica ] dark-[en ] green-1[Wolox]"
           />
         </div>
 

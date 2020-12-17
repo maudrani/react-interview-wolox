@@ -7,8 +7,8 @@ import Footer from "./footer/Footer";
 
 const Landing = () => {
   return (
-    <div>
-      {/* <NavBar /> */}
+    <div className='landing'>
+      <NavBar />
       <Hero />
       <Promo />
       <Benefits />

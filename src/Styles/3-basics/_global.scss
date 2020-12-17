@@ -3,7 +3,6 @@ html {
     margin: 0;
     box-sizing: border-box;
     font-size: $font-size-main; //Cambiar con media queries
-    scroll-behavior: smooth;
 }
 
 
@@ -14,7 +13,6 @@ html {
     font-family: $font-family;
     transition: $transition-main;
     outline: none;
-    scroll-behavior: smooth;
 }
 
 a,

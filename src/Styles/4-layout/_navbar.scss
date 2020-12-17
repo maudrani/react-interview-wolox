@@ -1,0 +1,25 @@
+.navbar {
+    position: absolute;
+    width: 100%
+}
+
+.navbar .container {
+    @include griding(1fr, 2fr 1fr);
+    padding: 3rem 5rem;
+
+    .logo-container {
+        height: 100%;
+        img {
+            width: 25%;
+        }
+    }
+
+    ul {
+        height: 100%;
+        list-style-type: none;
+
+        a:hover {
+            color: $wolox-blue;
+        }
+    }
+}
