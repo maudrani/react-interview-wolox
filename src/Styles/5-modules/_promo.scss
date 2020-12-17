@@ -1,0 +1,26 @@
+.promo .container {
+    @include griding(1fr, 5fr 4fr);
+    background-color: $wolox-whitesmoke;
+
+    .img-container {
+        .socialmedia-container {
+            position: absolute;
+            z-index: 1;
+            height: 50%;
+
+            .icon{
+                color: white;
+                margin-right: .5rem;
+            }
+        }
+
+        img {
+            position: relative;
+            width: 100%;
+        }
+    }
+
+    .title-container .title {
+        text-align: center;
+    }
+}

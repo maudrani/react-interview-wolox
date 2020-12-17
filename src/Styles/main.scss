@@ -12,12 +12,17 @@
 @import './3-Basics/buttons';
 @import './3-Basics//typography';
 
+// 4-Layout
+@import './4-layout/navbar';
+@import './4-layout/footer';
+@import './4-layout/social-media';
+@import './4-layout/benefits-list';
+@import './4-layout/benefit';
 
+// 5-Modules
+@import './5-modules/hero';
+@import './5-modules/promo';
+@import './5-modules/benefits';
 
-//Landing 
-@import './Landing/navbar';
-@import './Landing/social-media';
-@import './Landing/hero';
-@import './Landing/promo';
-@import './Landing/benefits';
-@import './Landing/footer';
+// 6-Pages
+@import './6-pages/landing';

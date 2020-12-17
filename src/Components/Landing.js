@@ -8,11 +8,11 @@ import Footer from "./footer/Footer";
 const Landing = () => {
   return (
     <div>
-      <NavBar />
-{/*       <Hero />
+      {/* <NavBar /> */}
+      <Hero />
       <Promo />
       <Benefits />
-      <Footer /> */}
+      <Footer />
     </div>
   );
 };

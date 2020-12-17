@@ -3,19 +3,19 @@
 $wolox-blue: #00A7E8;
 $wolox-green: #9FC739;
 $wolox-dark: #1B263C;
+$wolox-whitesmoke: #F2F5FA;
 $white: white;
 
 $colors: (blue: $wolox-blue,
     green: $wolox-green,
     dark: $wolox-dark,
     white:white,
-);
+    whitesmoke: $wolox-whitesmoke);
 
 
 //Margin / Padding
 
-$main-margin-left: 162.94px;
-
+$main-margin-left: 113.5px;
 
 
 //Fonts
@@ -23,7 +23,8 @@ $main-margin-left: 162.94px;
 
 $font-family: 'Montserrat';
 
-$font-size-main: 21px;
+
+$font-size-main: 15px;
 
 $font-sizes: (fs-6: 1rem,
     fs-5:1.43rem,
@@ -34,12 +35,14 @@ $font-sizes: (fs-6: 1rem,
 );
 
 
+$font-weight-5: 300;
 $font-weight-4: 400;
 $font-weight-3: 500;
 $font-weight-2: 600;
 $font-weight-1: 700;
 
-$font-weights: (fw-4:$font-weight-4,
+$font-weights: (fw-5:$font-weight-5,
+    fw-4:$font-weight-4,
     fw-3:$font-weight-3,
     fw-2:$font-weight-2,
     fw-1:$font-weight-1,
@@ -86,7 +89,7 @@ $align-items: (fs:flex-start,
 
 
 //Animations
-$transition-main: 0.10s;
+$transition-main: 0.15s;
 
 
 

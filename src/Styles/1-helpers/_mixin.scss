@@ -13,7 +13,7 @@
 }
 
 
-@mixin stylizeButton($style, $color) {    
+@mixin stylizeButton($style, $color) {
     @if $style=='outline' {
         background-color: rgba(0, 0, 0, 0);
         color: $color;
@@ -28,6 +28,8 @@
         color: white;
         background-color: $color;
 
+        box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.07);
+
         &:hover {
             background-color: rgba(0, 0, 0, 0);
             color: $color;
@@ -37,11 +39,18 @@
     @include flex();
 
     padding: 0.7rem 4rem;
-    border: 2px solid $color;
+    border: 3px solid $color;
     border-radius: 8vh;
     font-size: 1rem;
 
     &:hover {
         cursor: pointer;
     }
+}
+
+
+@mixin bgImageOptions($size: contain, $repeat: no-repeat, $position: center) {
+    background-size: $size;
+    background-repeat: $repeat;
+    background-position: $position;
 }

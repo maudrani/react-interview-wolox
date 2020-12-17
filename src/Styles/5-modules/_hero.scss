@@ -1,0 +1,39 @@
+.hero .container {
+    @include griding(1fr, 1fr 1fr);
+
+    background-image: url('../../Assets/Backgrounds/Bg_Header@3x.png');
+    @include bgImageOptions();
+
+    height: 100vh;
+
+    .title-container {
+        width: 100%;
+        height: 100%;
+
+        .title {
+            width: 80%;
+        }
+    }
+
+    .img-container {
+        height: 100%;
+
+        img {
+            max-width: 70%;
+        }
+    }
+
+
+    @media screen and (max-width: $laptop-max) {
+
+        @include griding(1fr 1fr, 1fr);
+        background-image: url('../../Assets/Backgrounds/Bg_Header@2x.png');
+        @include bgImageOptions(contain, repeat);
+
+        .title-container {
+            text-align: center;
+        }
+    }
+
+    @media screen and (max-width: $mobile-max) {}
+}

@@ -1,0 +1,22 @@
+.benefit {
+    @include griding(1fr 1fr, 1fr);
+    height: 100%;
+    width: 100%;
+    padding: 2rem;
+
+    .img-container {
+        height: 100%;
+
+        .image {
+            width: 6rem;
+            padding-bottom: 2rem;
+            align-self: center;
+        }
+    }
+
+    .title-container {
+        height: 100%;
+        text-align: center;
+    }
+
+}

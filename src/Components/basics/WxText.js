@@ -1,6 +1,6 @@
 import React from "react";
 
-const Title = ({ content = "", size = 5, weight = 4, color = "dark" }) => {
+const WxText = ({ content = "", size = 5, weight = 4, color = "dark", className }) => {
   let customContentFinder = new RegExp(/\w+-\w\[.*?\]/, "gmi");
   let stylesFinder = new RegExp(/(?<=)\w+-./, "gmi");
   let textsFinder = new RegExp(/(?<=\[)(.*?)(?=\])/, "gmi");
@@ -17,7 +17,7 @@ const Title = ({ content = "", size = 5, weight = 4, color = "dark" }) => {
 
   const createElementNormal = (content = "") => {
     return (
-      <span className={`fs-${size} fw-${weight} fc-${color}`}>{content}</span>
+      <span className={`fs-${size} fw-${weight} fc-${color} ${className}`}>{content}</span>
     );
   };
 
@@ -26,7 +26,7 @@ const Title = ({ content = "", size = 5, weight = 4, color = "dark" }) => {
     const codedTexts = content.match(textsFinder);
 
     return (
-      <span className={`fs-${size}`}>
+      <span className={`fs-${size} fw-${weight} ${className}`}>
         {" "}
         {codedTexts.map((text, id) => {
           return (
@@ -44,4 +44,5 @@ const Title = ({ content = "", size = 5, weight = 4, color = "dark" }) => {
     : createElementNormal(content);
 };
 
-export default Title;
+export default WxText;
+

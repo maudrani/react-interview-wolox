@@ -12,12 +12,17 @@ html {
     margin: 0;
     box-sizing: border-box;
     font-family: $font-family;
-    color: $wolox-dark;
     transition: $transition-main;
     outline: none;
     scroll-behavior: smooth;
 }
 
-a {
+a,
+p,
+h1,
+h2,
+h3,
+h4 {
+    color: $wolox-dark;
     text-decoration: none;
 }

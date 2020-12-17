@@ -5,15 +5,15 @@ const WxButton = ({
   color = 'blue',
   outline = false,
   fontColor,
-  fontWeight,
+  fontWeight = '4',
   fontSize,
-  btnClass,
+  className,
 }) => {
   return (
     <button
       className={`btn-${color}-${
         outline ? "outline" : "normal"
-      } ${btnClass}`}
+      } ${className}`}
     >
       <span className={`fw-${fontWeight} fs-${fontSize} fc-${fontColor}`}>
         {content}

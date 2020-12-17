@@ -1,0 +1,20 @@
+.footer {
+    background-image: url('../../Assets/Backgrounds/Bg_Footer@3x.png');
+    @include bgImageOptions(contain);
+    height: 70vh;
+}
+
+.footer .container {
+    height: 100%;
+    padding-top: 4.5rem;
+    @include griding(.5fr .5fr 1fr 1.5fr, 1fr);
+
+    .main-title,
+    .sub-title {
+        text-align: center;
+    }
+
+    .logo-container img {
+        padding-bottom: 2.5rem;
+    }
+}
