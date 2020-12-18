@@ -10,19 +10,26 @@ const Promo = () => {
     <div className="promo">
       <div className="container r-c-c">
         <div className="img-container r-c-c">
+
           <div className="socialmedia-container c-sa-c">
             <WxText
               className="title"
               size="1"
-              content="green-1[350 +] blue-1[Woloxers]"
+              content="green-1[350 + ] blue-1[Woloxers]"
             />
-            <div className="r-c-c">
+            <div className="r-c-c socialmedia-description">
               <FontAwesomeIcon
                 icon={["fab", "twitter"]}
                 color="white"
                 className="fs-2 icon"
               />
-              <WxText content="@Wolox" size="5" weight="3" color="white" />
+              <WxText
+                className="username"
+                content="@Wolox"
+                size="5"
+                weight="3"
+                color="white"
+              />
             </div>
             <WxButton
               content="Siguenos"
@@ -34,12 +41,14 @@ const Promo = () => {
           </div>
 
           <img alt="social-img" src={img} />
+          
         </div>
+
         <div className="title-container r-c-c">
           <WxText
             size="3"
             weight="3"
-            content="dark-[Trabajamos para ] blue-1[convertir ] green-1[ideas ] dark[en productos.]"
+            content="dark-[Trabajamos para ] blue-1[convertir ] green-1[ideas ] dark-[en productos.]"
             className="title"
           />
         </div>

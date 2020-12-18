@@ -7,7 +7,7 @@ import Footer from "./footer/Footer";
 
 const Landing = () => {
   return (
-    <div className='landing'>
+    <div className="landing">
       <NavBar />
       <Hero />
       <Promo />

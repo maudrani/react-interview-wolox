@@ -1,0 +1,11 @@
+.benefits-list {
+    width: 100%;
+
+    @include media('<=laptop') {
+        @include griding(1fr, 1fr 1fr 1fr);
+    }
+
+    @include media('<=phone') {
+        @include griding(1fr, 1fr);
+    }
+}

@@ -24,7 +24,7 @@ $main-margin-left: 113.5px;
 $font-family: 'Montserrat';
 
 
-$font-size-main: 15px;
+$font-size-main: 15.5px;
 
 $font-sizes: (fs-6: 1rem,
     fs-5:1.43rem,
@@ -51,20 +51,8 @@ $font-weights: (fw-5:$font-weight-5,
 
 
 
-//Responsive
-$mobile-min: 300px;
-$mobile-max: 480px;
-
-$tablet-min: 481px;
-$tablet-max: 768px;
-
-$laptop-min: 769px;
-$laptop-max: 1024px;
-
-$desktop-min: 1025px;
-$desktop-max: 1200px;
-
-$tv-min: 1201px;
+//Beakpoints
+$breakpoints: (phone: 480px, tablet: 768px, laptop: 1024px, desktop: 1200px, tv: 1300px);
 
 //FlexBox
 
@@ -89,7 +77,7 @@ $align-items: (fs:flex-start,
 
 
 //Animations
-$transition-main: 0.15s;
+$transition-main: 0.08s;
 
 
 

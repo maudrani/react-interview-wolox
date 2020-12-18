@@ -3,11 +3,38 @@
         padding: 3rem;
 
         .promo-title {
+            text-align: center;
             padding: 3rem;
         }
 
         .benefits-list {
             padding: 2rem 0;
+        }
+
+        @include media('<=desktop') {
+            @include multiplyFontSize(0.85);
+        }
+
+        @include media('<=laptop') {
+            padding: 3rem .5rem;
+
+            .benefits-list {
+                padding: 1rem 0;
+            }
+        }
+
+        @include media('<=laptop') {
+            padding: 1rem;
+
+            .benefits-list {
+                padding: 1rem 0;
+            }
+        }
+
+        @include media('<=phone') {
+            .promo-title {
+                padding: 2rem .5rem;
+            }
         }
     }
 }

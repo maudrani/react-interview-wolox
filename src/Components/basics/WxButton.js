@@ -2,18 +2,18 @@ import React from "react";
 
 const WxButton = ({
   content,
-  color = 'blue',
+  color = "blue",
   outline = false,
   fontColor,
-  fontWeight = '4',
+  fontWeight = "4",
   fontSize,
   className,
+  onClick,
 }) => {
   return (
     <button
-      className={`btn-${color}-${
-        outline ? "outline" : "normal"
-      } ${className}`}
+      onClick={onClick}
+      className={`btn-${color}-${outline ? "outline" : "normal"} ${className}`}
     >
       <span className={`fw-${fontWeight} fs-${fontSize} fc-${fontColor}`}>
         {content}

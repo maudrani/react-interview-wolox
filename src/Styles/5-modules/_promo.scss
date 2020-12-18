@@ -1,14 +1,14 @@
 .promo .container {
     @include griding(1fr, 5fr 4fr);
     background-color: $wolox-whitesmoke;
-
     .img-container {
+        height: 100%;
         .socialmedia-container {
             position: absolute;
             z-index: 1;
             height: 50%;
 
-            .icon{
+            .icon {
                 color: white;
                 margin-right: .5rem;
             }
@@ -22,5 +22,60 @@
 
     .title-container .title {
         text-align: center;
+    }
+
+    @include media('<=laptop') {
+        @include multiplyFontSize(0.8);
+
+        .socialmedia-container {
+            padding: 2rem 0;
+        }
+    }
+
+    @include media('<=tablet') {
+        @include griding(1fr 1fr, 1fr);
+        
+        .socialmedia-container {
+            @include multiplyFontSize(0.8);
+            justify-content: center;
+
+            .title{
+                padding: 2rem;      
+            }
+
+            .socialmedia-description {
+                padding: 2rem 0;
+            }
+        }
+
+        .title-container {
+            padding: 3rem;
+        }
+    }
+
+    @include media('<=phone') {
+        @include griding(2fr 1fr, 1fr);
+        @include multiplyFontSize(0.6);
+
+        .socialmedia-container  {      
+            @include multiplyFontSize(0.6);
+
+            .title{
+                padding: 0;      
+            }
+
+            .socialmedia-description {
+                padding: 2rem 0;
+            }
+        }
+        
+        .img-container {
+            background-image: url('../../Assets/img_woloxer.png');
+            @include bgImageOptions(cover, no-repeat, top);
+
+            img {
+                display: none;
+            }
+        }
     }
 }
