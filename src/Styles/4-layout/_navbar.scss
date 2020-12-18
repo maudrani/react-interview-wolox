@@ -27,7 +27,7 @@
         height: 100%;
 
         img {
-            width: 13.5rem;
+            width: 14rem;
         }
 
         .menu-launcher {
@@ -55,6 +55,11 @@
         height: 100%;
         list-style-type: none;
 
+        .reg-btn {
+            margin-left: -30px;
+            width: 115%;
+        }
+
         a:hover {
             color: $wolox-blue;
         }
@@ -62,6 +67,10 @@
 
     @include media('<=tv') {
         @include griding(1fr, 1fr 1fr);
+        ul .reg-btn {
+            margin-left: 0;
+            width: 100%;
+        }
     }
 
     @include media('<=desktop') {
@@ -130,6 +139,10 @@
             .reg-btn {
                 width: 100%;
                 @include multiplyFontSize(1.3);
+/*                 &:hover {
+                    opacity: 25%;
+                    transition: .2s;
+                } */
             }
 
         }

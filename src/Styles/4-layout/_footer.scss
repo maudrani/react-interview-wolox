@@ -1,24 +1,24 @@
 .footer {
     background-image: url('../../Assets/Backgrounds/Bg_Footer@3x.png');
-    @include bgImageOptions(contain);
-    height: 80vh;
+    @include bgImageOptions(cover, no-repeat, bottom);
+    
 
     @include media('<=laptop') {
         background-image: url('../../Assets/Backgrounds/Bg_Footer@2x.png');
         @include bgImageOptions(contain, repeat);
     }
 
-    @include media('<=laptop') {
+    @include media('<=tablet') {
         background-image: url('../../Assets/Backgrounds/Bg_Footer.png');
-        @include bgImageOptions(contain, repeat);
-        
+        @include bgImageOptions(contain, repeat);     
     }
+
 }
 
 .footer .container {
     height: 100%;
-    padding: 4.5rem 3rem 0 3rem;
-    @include griding(.5fr .5fr 1fr 1.5fr, 1fr);
+    padding: .5rem 3rem 0 3rem;
+    @include griding(.1fr .1fr .5fr .5fr, 1fr);
 
     .main-title,
     .sub-title {

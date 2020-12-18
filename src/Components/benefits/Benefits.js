@@ -9,7 +9,7 @@ const Benefit = () => {
         <WxText
           className=" promo-title"
           size="4"
-          content="dark-3[Entre los beneficios que ofrecemos se encuentran ] blue-3[;)]"
+          content="dark-3[Entre los beneficios que ofrecemos se encuentran ] blue-3[ ;)]"
         />
         <BenefitList className=" benefits-list" />
       </div>

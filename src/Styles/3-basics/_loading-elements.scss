@@ -1,0 +1,74 @@
+//Panel Loading
+.panel-loading {
+  position: absolute;
+  height: 140vh;
+  width: 140vw;
+  top: 0%;
+  left: 0%;
+  background-color: rgb(248, 248, 248);
+  opacity: 80%;
+  z-index: 5;
+}
+
+/* Spinner 1 */
+.spinner-1:before {
+  content: "";
+  box-sizing: border-box;
+  position: fixed;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: 5px solid rgb(255, 255, 255);
+  border-top-color: $wolox-blue;
+  animation: spinner 0.7s linear infinite;
+}
+
+/* Spinner 2 */
+.spinner-2:before {
+  content: "";
+  box-sizing: border-box;
+  position: fixed;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: 4px solid transparent;
+  border-top-color: $wolox-blue;
+  border-bottom-color: $wolox-green;
+  animation: spinner 0.7s ease infinite;
+}
+
+/* Spinner 3 */
+.spinner-3:before {
+  content: "";
+  box-sizing: border-box;
+  position: fixed;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border-top: 4px solid $wolox-blue;
+  border-right: 4px solid transparent;
+  animation: spinner 0.7s linear infinite;
+
+}
+
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}

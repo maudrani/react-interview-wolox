@@ -10,7 +10,6 @@ const Promo = () => {
     <div className="promo">
       <div className="container r-c-c">
         <div className="img-container r-c-c">
-
           <div className="socialmedia-container c-sa-c">
             <WxText
               className="title"
@@ -32,6 +31,7 @@ const Promo = () => {
               />
             </div>
             <WxButton
+              className="btn-follow"
               content="Siguenos"
               fontColor="white"
               fontWeight="2"
@@ -41,7 +41,6 @@ const Promo = () => {
           </div>
 
           <img alt="social-img" src={img} />
-          
         </div>
 
         <div className="title-container r-c-c">
