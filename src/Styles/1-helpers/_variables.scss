@@ -5,12 +5,16 @@ $wolox-green: #9FC739;
 $wolox-dark: #1B263C;
 $wolox-whitesmoke: #F2F5FA;
 $white: white;
+$wolox-gray: #9b9b9b;
+$error-red: #ff0033;
 
 $colors: (blue: $wolox-blue,
     green: $wolox-green,
     dark: $wolox-dark,
     white:white,
-    whitesmoke: $wolox-whitesmoke);
+    whitesmoke: $wolox-whitesmoke,
+    gray: $wolox-gray,
+    error: $error-red);
 
 
 //Margin / Padding

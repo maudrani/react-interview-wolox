@@ -1,29 +1,47 @@
-import React, { useState } from "react";
-import WxButton from "../basics/WxButton";
-import Loader from "../basics/loader";
-import logo from "../../Assets/logo_full_color.svg";
-import "../basics/fontawesome";
+import React, { useState, useEffect } from "react";
+import WxButton from "../../Basics/WxButton";
+import Loader from "../../Basics/loader";
+import logo from "../../../Assets/logo_full_color.svg";
+import "../../Basics/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const NavBar = ({ className }) => {
+const NavBar = ({ className, ref, references = {}}) => {
   const [launchMenu, setLaunchMenu] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [Loading, setLoading] = useState(false);
+  const [hide , setHide] = useState(false);
+
+
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      window.scrollY < 1 ? setScrolled(false) : setScrolled(true);
+    });
+  }, []);
 
   const loadAndClose = () => {
     setTimeout(() => {
       setLaunchMenu(false);
       setLoading(false);
-    }, 2000);
+    }, 2500 * Math.random());
   };
 
-  window.addEventListener("scroll", () => {
-    window.scrollY < 1 ? setScrolled(false) : setScrolled(true);
-  });
+  function ScrollTo (e) {
+    const sectionRef = e.currentTarget.getAttribute('id');
+    references[sectionRef].current.scrollIntoView();
+
+    setHide(true);
+    setTimeout(() => {
+      setHide(false);
+    }, 1000);
+  };
 
   return (
     <div
-      className={`navbar ${className} ${scrolled ? "nav-scrolled" : "null"}`}
+      ref={ref}
+      className={`navbar ${className} ${scrolled ? "nav-scrolled" : null} ${
+        hide ? "nav-hided" : null
+      }`}
     >
       <div
         className={`container r-sb-c`}
@@ -46,12 +64,20 @@ const NavBar = ({ className }) => {
           }`}
         >
           <li>
-            <a onClick={() => setLaunchMenu(false)} href="#inicio">
+            <a
+              onClick={(e) => setLaunchMenu(false) ||ScrollTo(e)}
+              id="HeroRef"
+              href="#Inicio"
+            >
               Inicio
             </a>
           </li>
           <li>
-            <a onClick={() => setLaunchMenu(false)} href="#beneficios">
+            <a
+              onClick={(e) => setLaunchMenu(false) ||ScrollTo(e)}
+              id="BenefitsRef"
+              href="#Beneficios"
+            >
               Beneficios
             </a>
           </li>

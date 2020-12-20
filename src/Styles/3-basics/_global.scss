@@ -3,6 +3,8 @@ html {
     margin: 0;
     box-sizing: border-box;
     font-size: $font-size-main; //Cambiar con media queries
+    scroll-behavior: smooth;
+    /* overflow-x: hidden; */
 }
 
 
@@ -23,4 +25,12 @@ h3,
 h4 {
     color: $wolox-dark;
     text-decoration: none;
+}
+
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }

@@ -1,9 +1,12 @@
 import Landing from "./Components/Landing";
+import Login from "./Components/Login";
+
 
 function App() {
   return (
     <div>
-      <Landing />
+      <Login />
+      {/* <Landing /> */}
     </div>
   );
 }

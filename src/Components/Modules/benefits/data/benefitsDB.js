@@ -1,9 +1,9 @@
-import timeFlex from "../../../Assets/Ic_Hour.svg";
-import homeOffice from "../../../Assets/Ic_HomeOffice.svg";
-import workshops from "../../../Assets/Ic_Workshops.svg";
-import drinksSnacks from "../../../Assets/Ic_DrinkSnacks.svg";
-import remoteWeek from "../../../Assets/Ic_laptop.svg";
-import highTech from "../../../Assets/Ic_brain.svg";
+import timeFlex from "../../../../Assets/Ic_Hour.svg";
+import homeOffice from "../../../../Assets/Ic_HomeOffice.svg";
+import workshops from "../../../../Assets/Ic_Workshops.svg";
+import drinksSnacks from "../../../../Assets/Ic_DrinkSnacks.svg";
+import remoteWeek from "../../../../Assets/Ic_laptop.svg";
+import highTech from "../../../../Assets/Ic_brain.svg";
 
 const benefitsDB = [
   {

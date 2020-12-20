@@ -1,0 +1,83 @@
+.input-container {
+    position: relative;
+    padding: 15px 0 0;
+    margin-top: 15px;
+
+    .input {
+        max-height: 55px;
+        width: 100%;
+        border: 0;
+        border-bottom: 2px solid $wolox-gray;
+        outline: 0;
+        padding: 10px 0 1px 0;
+        background: transparent;
+
+        &::placeholder {
+            font-size: 0.4em;
+            font-weight: 300;
+        }
+
+        &:placeholder-shown~label {
+            cursor: text;
+            top: 8px;
+        }
+    }
+
+    .label {
+        position: absolute;
+        top: 0;
+        display: block;
+        transition: 0.2s;
+    }
+
+    @each $name,
+    $color in $colors {
+        @if $name=='error' {
+            .input-#{$name}:focus {
+                ~.label {
+                    position: absolute;
+                    top: 0;
+                    display: block;
+                    transition: 0.2s;
+                    font-size: 0.8em;
+                    color: $color;
+                    font-weight: 700;
+                }
+
+                padding-bottom: 4px;
+                border-width: 2px; //3px
+                border-color: $color;
+                border-image-slice: 1;
+            }
+        }
+
+        @else {
+            .input-#{$name}:focus {
+
+                ~.label {
+                    font-size: 0.8em;
+                    color: $color;
+                    position: absolute;
+                    top: 0;
+                    display: block;
+                    transition: 0.2s;
+                    font-weight: 700;
+
+                }
+
+                padding-bottom: 4px;
+                border-width: 2px; //3px
+                border-color: $color;
+                border-image-slice: 1;
+            }
+        }
+    }
+
+    .input {
+
+        &:required,
+        &:invalid {
+            box-shadow: none;
+        }
+    }
+}

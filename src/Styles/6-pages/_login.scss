@@ -1,0 +1,244 @@
+.login {
+    min-height: 100vh;
+    padding: 3rem 8rem;
+    box-shadow: inset 0px 0px 40px -5px rgba(27, 38, 60, 0.4);
+
+    @include media('<=desktop') {
+        padding: 3rem 6rem;
+    }
+
+    @include media('<=laptop') {
+        padding: 3rem 4rem;
+    }
+
+    @include media('<=tablet') {
+        padding: 2rem 0;
+        box-shadow: inset 0px 0px 40px -5px rgba(27, 38, 60, 0.0);
+    }
+
+    @include media('<=phone') {
+        min-height: 100%;
+        padding: 0rem !important;
+    }
+
+    .main-panel {
+        height: 100%;
+        width: 100%;
+        @include griding(1fr, 1fr 1.2fr);
+        box-shadow: 0px 3px 15px rgba(27, 38, 60, 0.2);
+        border-radius: 1vw;
+
+        @include media('<=tablet') {
+            @include flex(column-reverse);
+        }
+    }
+
+    .image-panel {
+        height: 100%;
+        width: 100%;
+        box-shadow: inset 0px 0px 40px -8px rgba(27, 38, 60, 0.1);
+        padding: 2rem 4rem;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 1vw 0 0 1vw;
+
+        @include media('<=phone') {
+            box-shadow: inset 0px 0px 40px -8px rgba(27, 38, 60, 0.0);
+        }
+
+        .svg-logo {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            fill: #1B263C;
+            filter: drop-shadow(0 0.2rem 0.225rem rgba(27, 38, 60, 0.4));
+
+            @include media('<=tablet') {
+                max-width: 10rem;
+            }
+        }
+
+        .animation1 path {
+            animation: animate-path1 3s linear forwards;
+
+            @keyframes animate-path1 {
+                0% {
+                    fill: $wolox-dark;
+                }
+
+                3% {
+                    fill: transparent;
+                }
+
+                4% {
+                    fill: $wolox-blue;
+                }
+
+                40% {
+                    fill: $wolox-blue;
+                }
+
+                43% {
+                    fill: transparent;
+                }
+
+                44% {
+                    fill: $wolox-green;
+                }
+
+                80% {
+                    fill: $wolox-green;
+                }
+
+                83% {
+                    fill: transparent;
+                }
+
+                84% {
+                    fill: $wolox-dark;
+                }
+
+                100% {
+                    fill: $wolox-dark;
+                }
+            }
+        }
+
+        .animation2 polygon {
+            animation: animate-polygon1 3s linear forwards;
+
+            @keyframes animate-polygon1 {
+                0% {
+                    fill: $wolox-dark;
+                }
+
+                3% {
+                    fill: transparent;
+                }
+
+                4% {
+                    fill: $wolox-blue;
+                }
+
+                40% {
+                    fill: $wolox-blue;
+                }
+
+                43% {
+                    fill: transparent;
+                }
+
+                44% {
+                    fill: $wolox-green;
+                }
+
+                80% {
+                    fill: $wolox-green;
+                }
+
+                83% {
+                    fill: transparent;
+                }
+
+                84% {
+                    fill: $wolox-dark;
+                }
+
+                100% {
+                    fill: $wolox-dark;
+                }
+            }
+        }
+
+        .animation3 {
+
+            polygon,
+            path {
+                animation: logoAnimation1 4.3s linear forwards;
+
+                @keyframes logoAnimation1 {
+                    0% {
+                        fill: $wolox-dark;
+                    }
+
+                    7% {
+                        fill: transparent;
+                        stroke-width: 0.1;
+                    }
+
+                    14% {
+                        stroke: $wolox-dark;
+
+                        stroke-dasharray: 5;
+                    }
+
+                    25% {
+                        stroke-dasharray: 5;
+                    }
+
+                    93% {
+                        stroke: $wolox-dark;
+                        stroke-width: 0.1;
+                        fill: transparent;
+                        stroke-dasharray: 100
+                    }
+
+                    98% {
+                        stroke-width: 0.1;
+                        fill: transparent;
+                    }
+                }
+            }
+        }
+
+
+    }
+
+    .data-panel {
+        height: 100%;
+        width: 100%;
+
+        @include griding(2fr 9fr, 1fr);
+        padding: 2rem 4rem;
+
+        @include media('<=desktop') {
+            @include multiplyFontSize(1);
+        }
+
+        @include media('<=laptop') {
+            padding: 2rem 2rem;
+            @include multiplyFontSize(0.8);
+
+            .form {
+                .form-item {
+                    padding: .5rem 0;
+                }
+            }
+        }
+
+        @include media('<=tablet') {
+            @include multiplyFontSize(1);
+
+            .title {
+                justify-content: center;
+            }
+
+            .form {
+                @include griding(3fr 1fr 1fr, .8fr);
+
+                .form-item {
+                    justify-content: center;
+                }
+            }
+        }
+
+        @include media('<=phone') {
+            padding: 1rem 1rem;
+            @include multiplyFontSize(0.8);
+
+            .form {
+                @include griding(3fr 1fr 1fr, .9fr);
+            }
+        }
+    }
+}

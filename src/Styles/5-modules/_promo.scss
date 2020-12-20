@@ -24,6 +24,7 @@
             .btn-follow {
                 width: 62%;
                 height: 22%;
+                max-height: 4rem;
             }
         }
 
@@ -43,12 +44,9 @@
 
     @include media('<=laptop') {
         @include multiplyFontSize(0.8);
-
         .socialmedia-container {
+            justify-content: center;
             padding: 2rem 0;
-            /*             .btn-follow {
-                height: 15rem;
-            } */
         }
     }
 

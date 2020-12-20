@@ -1,5 +1,5 @@
 import React from "react";
-import WxText from "../basics/WxText";
+import WxText from "../../Basics/WxText";
 
 const Benefit = ({ title, image, className }) => {
   return (

@@ -1,9 +1,13 @@
 import React from "react";
-import WxTexto from "../basics/WxText";
-import WxButton from "../basics/WxButton";
-import logo from "../../Assets/Ic_Wolox_Footer.svg";
+import WxTexto from "../../Basics/WxText";
+import WxButton from "../../Basics/WxButton";
+import logo from "../../../Assets/Ic_Wolox_Footer.svg";
 
 const Footer = () => {
+  const sendToWebPage = () => {
+    window.open("https://www.wolox.com.ar", "_blank");
+  };
+
   return (
     <div className="footer">
       <div className="container">
@@ -20,6 +24,7 @@ const Footer = () => {
         />
         <div className="btn-container r-c-c ">
           <WxButton
+            onClick={sendToWebPage}
             color="blue"
             content="Conocer más"
             fontSize="5"

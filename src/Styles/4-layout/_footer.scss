@@ -1,7 +1,7 @@
 .footer {
     background-image: url('../../Assets/Backgrounds/Bg_Footer@3x.png');
     @include bgImageOptions(cover, no-repeat, bottom);
-    
+
 
     @include media('<=laptop') {
         background-image: url('../../Assets/Backgrounds/Bg_Footer@2x.png');
@@ -10,7 +10,7 @@
 
     @include media('<=tablet') {
         background-image: url('../../Assets/Backgrounds/Bg_Footer.png');
-        @include bgImageOptions(contain, repeat);     
+        @include bgImageOptions(contain, repeat);
     }
 
 }

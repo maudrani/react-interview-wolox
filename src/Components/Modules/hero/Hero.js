@@ -1,10 +1,10 @@
 import React from "react";
-import WxText from "../basics/WxText";
-import img from "../../Assets/Img-Hero/Ic_ilustra_Hero@3x.png";
+import WxText from "../../Basics/WxText";
+import img from "../../../Assets/Img-Hero/Ic_ilustra_Hero@3x.png";
 
-const Hero = () => {
+const Hero = ({forwaredRef}) => {
   return (
-    <div className="hero">
+    <div ref={forwaredRef} className="hero">
       <div className="container r-c-c">
         <div className="title-container r-fs-c">
           <WxText

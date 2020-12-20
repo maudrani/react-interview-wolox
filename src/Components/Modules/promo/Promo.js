@@ -1,21 +1,30 @@
 import React from "react";
-import img from "../../Assets/img_woloxer@3x.png";
-import WxText from "../basics/WxText";
-import WxButton from "../basics/WxButton";
+import img from "../../../Assets/img_woloxer@3x.png";
+import WxText from "../../Basics/WxText";
+import WxButton from "../../Basics/WxButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../basics/fontawesome";
+import "../../Basics/fontawesome";
 
 const Promo = () => {
+
+  const sendToSocialMedia = () => {
+    window.open("https://twitter.com/wolox", "_blank");
+  } 
+
   return (
     <div className="promo">
       <div className="container r-c-c">
         <div className="img-container r-c-c">
           <div className="socialmedia-container c-sa-c">
+
+
             <WxText
               className="title"
               size="1"
               content="green-1[350 + ] blue-1[Woloxers]"
             />
+
+            
             <div className="r-c-c socialmedia-description">
               <FontAwesomeIcon
                 icon={["fab", "twitter"]}
@@ -31,6 +40,7 @@ const Promo = () => {
               />
             </div>
             <WxButton
+              onClick={sendToSocialMedia}
               className="btn-follow"
               content="Siguenos"
               fontColor="white"

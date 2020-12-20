@@ -1,10 +1,11 @@
 import React from "react";
-import WxText from "../basics/WxText";
+import WxText from "../../Basics/WxText";
 import BenefitList from "./benefit-list";
 
-const Benefit = () => {
+const Benefit = ({ className, forwardedRef }) => {
+
   return (
-    <div className="benefits">
+    <div ref={forwardedRef} className={`benefits ${className}`}>
       <div className="container c-sa-c ">
         <WxText
           className=" promo-title"
