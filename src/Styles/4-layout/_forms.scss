@@ -1,5 +1,6 @@
 .form {
-    @include griding(3fr 1fr 1fr, 1fr);
+    @include griding(3fr 1fr 0.2fr 1fr, 1fr);
+
 
     a {
         transition: .2s;
@@ -24,11 +25,40 @@
     }
 
 
+    .form-slider {
+        max-width: 36vw;
 
-    .form-options .btn-form {
-        width: 40%;
-        min-width: 13rem;
-        margin-right: 1rem;
+        @include media('<=laptop') {
+            max-width: 40vw;
+        }
+
+        @include media('<=tablet') {
+            max-width: 88vw;
+        }
+
+    }
+
+    .error-message {
+        position: absolute;
+    }
+
+    .form-options {
+        width: 100%;
+        .btn-form {
+            width: 100%;
+            max-width: 15vw;
+        }
+
+        @include media('<=phone') {
+            @include flex(column-reverse, space-between);
+            /* margin-top: 2rem; */
+            .btn-form {
+                margin: .5rem 0;
+                height: 15%;
+                width: 100%;
+                max-width: 50vw;
+            }
+        }
     }
 
 }

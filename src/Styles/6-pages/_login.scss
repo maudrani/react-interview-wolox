@@ -24,25 +24,28 @@
     .main-panel {
         height: 100%;
         width: 100%;
+
         @include griding(1fr, 1fr 1.2fr);
-        box-shadow: 0px 3px 15px rgba(27, 38, 60, 0.2);
+        box-shadow: 0px 3px 15px rgba(27, 38, 60, 0.25);
         border-radius: 1vw;
 
         @include media('<=tablet') {
+            min-height: 100vh;
             @include flex(column-reverse);
+            box-shadow: inset 0px 0px 40px -4px rgba(27, 38, 60, 0.1);
         }
     }
 
     .image-panel {
         height: 100%;
         width: 100%;
-        box-shadow: inset 0px 0px 40px -8px rgba(27, 38, 60, 0.1);
+        box-shadow: inset 0px 0px 40px -4px rgba(27, 38, 60, 0.1);
         padding: 2rem 4rem;
         height: 100%;
         background-color: rgba(255, 255, 255, 0.2);
         border-radius: 1vw 0 0 1vw;
 
-        @include media('<=phone') {
+        @include media('<=tablet') {
             box-shadow: inset 0px 0px 40px -8px rgba(27, 38, 60, 0.0);
         }
 
@@ -218,13 +221,12 @@
 
         @include media('<=tablet') {
             @include multiplyFontSize(1);
-
             .title {
                 justify-content: center;
             }
 
             .form {
-                @include griding(3fr 1fr 1fr, .8fr);
+                @include griding(3fr 1fr 0.3fr 1fr, .8fr);
 
                 .form-item {
                     justify-content: center;
@@ -233,12 +235,19 @@
         }
 
         @include media('<=phone') {
-            padding: 1rem 1rem;
+            padding: 1rem 0 0 0;
+            @include griding(1.5fr 9fr, 1fr);
             @include multiplyFontSize(0.8);
 
             .form {
-                @include griding(3fr 1fr 1fr, .9fr);
+                @include griding(2.7fr .8fr 0.04fr 1.8fr, .9fr);
+
             }
         }
+    }
+
+    .loading-panel {
+        position: absolute;
+        height: 110%;
     }
 }

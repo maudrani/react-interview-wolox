@@ -33,7 +33,7 @@
     @each $name,
     $color in $colors {
         @if $name=='error' {
-            .input-#{$name}:focus {
+            .input-#{$name} {
                 ~.label {
                     position: absolute;
                     top: 0;
@@ -43,7 +43,7 @@
                     color: $color;
                     font-weight: 700;
                 }
-
+                font-weight: 600;
                 padding-bottom: 4px;
                 border-width: 2px; //3px
                 border-color: $color;
@@ -61,10 +61,10 @@
                     top: 0;
                     display: block;
                     transition: 0.2s;
-                    font-weight: 700;
+                    font-weight: 600;
 
                 }
-
+                font-weight: 500;
                 padding-bottom: 4px;
                 border-width: 2px; //3px
                 border-color: $color;

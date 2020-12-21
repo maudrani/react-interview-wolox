@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
 import WxForm from "./Layout/form/WxForm";
+import WxText from "./Basics/WxText";
+import Loading from "./Basics/loader";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Login = () => {
   const [animation, setAnimation] = useState(0);
+  const [userData, setUserData] = useState({});
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -30,10 +36,15 @@ const Login = () => {
 
         <div className="data-panel">
           <div className="r-fs-c title">
-            <h1 className="fw-2 fs-4 fc-blue">Registrarse</h1>
+            <WxText
+              content="dark-5[Cre] blue-5[a] green-5[r ] dark-5[Cuen] blue-5[t] green-5[a]"
+              size="3"
+            />
           </div>
 
-          <WxForm />
+          <WxForm userData={setUserData} />
+
+          {userData ? <Loading panel type="1" className="loading-panel" /> : null}
         </div>
       </div>
     </div>

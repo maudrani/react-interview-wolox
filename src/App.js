@@ -1,9 +1,9 @@
 import Landing from "./Components/Landing";
 import Login from "./Components/Login";
 
-
 function App() {
-  return (
+
+  return (    
     <div>
       <Login />
       {/* <Landing /> */}
