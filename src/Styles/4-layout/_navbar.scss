@@ -28,6 +28,19 @@
     padding: 4rem 6rem;
     transition: 0.4s;
 
+    .userInterface {
+        min-width: 20vw;
+        .fav-list {
+            min-width: 10rem;
+        }
+
+        @include media('<=tablet') {
+            min-width: 100vw;
+            min-height: 30vh;
+            @include flex(column, space-around);
+        }
+    }
+
     .logo-container {
         height: 100%;
 
@@ -65,6 +78,12 @@
             width: 115%;
         }
 
+        .navbar-name {
+            &:hover {
+                color: $wolox-blue;
+            }
+        }
+
         a:hover {
             color: $wolox-blue;
         }
@@ -72,6 +91,7 @@
 
     @include media('<=tv') {
         @include griding(1fr, 1fr 1fr);
+
         ul .reg-btn {
             margin-left: 0;
             width: 100%;

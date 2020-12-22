@@ -38,12 +38,51 @@
 
     }
 
+    .country-data {
+        min-height: 15rem;
+
+        @include media('<=tablet') {
+            padding: 2rem;
+            @include multiplyFontSize(0.7);
+        }
+
+        .country,
+        .province {
+            margin-top: 2rem;
+            @include griding(1fr, 1fr 1fr);
+
+            @include media('<=tablet') {
+                @include multiplyFontSize(0.6);
+            }
+
+            label {
+                color: $wolox-gray;
+            }
+
+            select {
+                color: $wolox-dark;
+                width: 100%;
+                transition: all .2s;
+                background: transparent;
+                border: none;
+                border-bottom: 1px solid $wolox-gray;
+                height: 100%;
+
+                option {
+                    padding: 2rem;
+                }
+            }
+
+        }
+    }
+
     .error-message {
         position: absolute;
     }
 
     .form-options {
         width: 100%;
+
         .btn-form {
             width: 100%;
             max-width: 15vw;
@@ -51,6 +90,7 @@
 
         @include media('<=phone') {
             @include flex(column-reverse, space-between);
+
             /* margin-top: 2rem; */
             .btn-form {
                 margin: .5rem 0;

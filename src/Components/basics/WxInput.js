@@ -19,6 +19,7 @@ const WxInput = ({
   match,
   forwardedRef,
   errorCatcher,
+  onChange,
 }) => {
   const [showError, setShowError] = useState(false);
   const [actualMatchValue, setActualMatchValue] = useState();
@@ -116,7 +117,7 @@ const WxInput = ({
         name={name}
         id={id}
         required={required}
-        onChange={(e) => startValidation(e)}
+        onChange={onChange ? onChange : (e) => startValidation(e)}
       />
       <label htmlFor="label" className={`label fc-gray fs-${labelFontSize}`}>
         {label}

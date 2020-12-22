@@ -71,3 +71,21 @@
         transition-delay: 0.15s;
     }
 }
+
+.wx-list {
+    
+    label {
+        color: $wolox-gray;
+    }
+
+    select {
+        color: $wolox-dark;
+        width: 100%;
+        transition: all .2s;
+        background: transparent;
+        border: none;
+        border-bottom: 2px solid $wolox-gray;
+        height: 100%;
+
+    }
+}

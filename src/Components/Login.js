@@ -1,14 +1,39 @@
 import React, { useEffect, useState } from "react";
 import WxForm from "./Layout/form/WxForm";
 import WxText from "./Basics/WxText";
-import Loading from "./Basics/loader";
-
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import Loader from "./Basics/loader";
+import { useLocalStorage } from "./dB/useLocalStorage";
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
   const [animation, setAnimation] = useState(0);
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useLocalStorage("user", {});
+  const [Loading, setLoading] = useState();
+
+  const history = useHistory();
+
+  const loadAndGo = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      history.push("/");
+    }, 2500 * Math.random());
+  };
+
+  const createUserData = async (data) => {
+    const apiData = await fetch(
+      "https://private-anon-4ce837f0c4-woloxfrontendinverview.apiary-mock.com/signup",
+      {
+        method: "POST",
+        body: data,
+      }
+    );
+
+    let { token } = await apiData.json();
+
+    setUserData({ ...data, token: token });
+    loadAndGo();
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -19,6 +44,7 @@ const Login = () => {
 
   return (
     <div className="login c-c-c">
+      {Loading ? <Loader panel type="2" className="loading-panel" /> : null}
       <div className="main-panel r-c-c">
         <div className="image-panel r-c-c">
           <svg
@@ -42,9 +68,7 @@ const Login = () => {
             />
           </div>
 
-          <WxForm userData={setUserData} />
-
-          {userData ? <Loading panel type="1" className="loading-panel" /> : null}
+          <WxForm createPackage={createUserData} />
         </div>
       </div>
     </div>

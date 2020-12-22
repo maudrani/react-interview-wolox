@@ -6,10 +6,11 @@
 }
 
 
-@mixin griding($rows, $cols) {
+@mixin griding($rows, $cols, $gap: 0) {
     display: grid;
     grid-template-rows: $rows;
     grid-template-columns: $cols;
+    grid-gap: $gap;
 }
 
 
@@ -22,6 +23,7 @@
             &:active {
                 transform: scale(1.2);
             }
+
             background-color: $color;
             color: white;
         }
@@ -37,6 +39,7 @@
             &:active {
                 transform: scale(1.2);
             }
+
             background-color: rgba(0, 0, 0, 0);
             color: $color;
         }
@@ -62,22 +65,26 @@
 }
 
 @mixin boxShadow($type: 1) {
-    @if $type == 1 {
+    @if $type==1 {
         box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.07);
     }
-    @if $type == 2 {
+
+    @if $type==2 {
         box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.1);
     }
-    @if $type == 3 {
+
+    @if $type==3 {
         box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.2);
     }
-    
+
 }
 
 
 // Fonts for mobile
 @mixin multiplyFontSize($value) {
-    @each $name, $size in $font-sizes {
+
+    @each $name,
+    $size in $font-sizes {
         .#{$name} {
             font-size: calc(#{$size} * #{$value});
         }

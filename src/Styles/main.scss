@@ -7,6 +7,7 @@
 @import './2-Tools/position-generator';
 @import './2-Tools/mockuping';
 @import './2-tools/include-media';
+@import './2-tools/plugins';
 
 // 3-Basics
 @import './3-Basics/global';
@@ -28,7 +29,9 @@
 @import './5-modules/hero';
 @import './5-modules/promo';
 @import './5-modules/benefits';
+@import './5-modules/routeError';
 
 // 6-Pages
 @import './6-pages/landing';
 @import './6-pages/login';
+@import './6-pages/techlist';

@@ -1,11 +1,25 @@
 import React, { useRef, useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import WxButton from "../../Basics/WxButton";
 import WxInput from "../../Basics/WxInput";
 import WxSelector from "../../Basics/WxSelector";
-
+import countries from "../../dB/countries";
 import Slider from "react-slick";
+import Loader from "../../Basics/loader";
 
-const WxForm = ({ userData }) => {
+const WxForm = ({ createPackage }) => {
+  const history = useHistory();
+  const [Loading, setLoading] = useState(false);
+
+  const cancelRegistry = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      history.push("/techlist")
+    }, 2500 * Math.random());
+  };
+
+
   //Slick usage
   const sliderRef = useRef();
   const [currentSlide, setCurrentSlide] = useState();
@@ -49,6 +63,9 @@ const WxForm = ({ userData }) => {
     phone: "",
     password: "",
   };
+  const [selectedCountry, setSelectedCountry] = useState(
+    Object.keys(countries)[0]
+  );
   const [inputsData, setInputsData] = useState({});
   const [errorMessage, setErrorMessage] = useState();
   const [valueToMatch, setValueToMatch] = useState(" ");
@@ -102,7 +119,7 @@ const WxForm = ({ userData }) => {
             .replace(/passwordMatch(,?)/, "");
 
           if (sortedRequiredData === sortedInputsNames && !errorMessage) {
-            cleanForm(inputsData);
+            sendData(inputsData);
           } else {
             setErrorMessage("Algunos datos no coinciden");
           }
@@ -117,35 +134,10 @@ const WxForm = ({ userData }) => {
     }
   };
 
-  const cleanForm = (form) => {
+  const sendData = (form) => {
     delete form["passwordMatch"];
 
-    getToken(form);
-  };
-
-  const getToken = (form) => {
-    console.log(form);
-    fetch(
-      "https://private-anon-4ce837f0c4-woloxfrontendinverview.apiary-mock.com/signup",
-      {
-        method: "POST",
-        body: form,
-      }
-    )
-      .then((response) => {
-        if (response.ok) {
-          return response.text();
-        } else {
-          // eslint-disable-next-line no-throw-literal
-          throw "Error en la llamada";
-        }
-      })
-      .then((token) => {
-        userData({ ...form, token: JSON.parse(token).token });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    createPackage(form);
   };
 
   return (
@@ -178,38 +170,51 @@ const WxForm = ({ userData }) => {
           />
         </div>
 
-        <div className="country-data r-sa-c" key={2}>
-          <div className="r-sa-c">
-            <label htmlFor="countries">Pais:</label>
-
+        <div className="country-data c-sa-c" key={2}>
+          <div className="r-sa-c country">
+            <label className="fs-4 fw-5" htmlFor="countries">
+              País:
+            </label>
             <select
+              className="fs-5 fw-5"
+              onLoad={(e) => setSelectedCountry(e.target.value)}
               onChange={(e) =>
-                getInputData(e.target.name, true, e.target.value)
+                getInputData(e.target.name, true, e.target.value) ||
+                setSelectedCountry(e.target.value)
               }
               name="country"
               id="countries"
             >
-              <option value="argentina">Argentina</option>
-              <option value="colombia">Colombia</option>
-              <option value="chile">Chile</option>
-              <option value="uruguay">Uruguay</option>
+              {Object.keys(countries).map((country, key) => {
+                return (
+                  <option className="fs-5 fw-5" key={key} value={country}>
+                    {country}
+                  </option>
+                );
+              })}
             </select>
           </div>
 
-          <div className="r-sa-c">
-            <label htmlFor="states">Provincia:</label>
+          <div className="r-sa-c province">
+            <label className="fs-4 fw-5" htmlFor="provinces">
+              Provincia:
+            </label>
 
             <select
+              className="fs-5 fw-5"
               name="province"
-              id="states"
+              id="provinces"
               onChange={(e) =>
                 getInputData(e.target.name, true, e.target.value)
               }
             >
-              <option value="provincia1">provincia1</option>
-              <option value="provincia2">provincia2</option>
-              <option value="provincia3">provincia3</option>
-              <option value="provincia4">provincia4</option>
+              {countries[selectedCountry].map((province, key) => {
+                return (
+                  <option className="fs-5 fw-5" key={key} value={province}>
+                    {province}
+                  </option>
+                );
+              })}
             </select>
           </div>
         </div>
@@ -259,7 +264,7 @@ const WxForm = ({ userData }) => {
       </div>
 
       <div className="form-item form-options r-sb-c">
-        <a className="fw-3 fs-6 fc-gray" href="#cancel">
+        <a className="fw-3 fs-6 fc-gray" href="#cancel" onClick={cancelRegistry}>
           Cancelar
         </a>
         <WxButton
@@ -294,7 +299,8 @@ const WxForm = ({ userData }) => {
           />
         )}
       </div>
-
+    
+      {Loading ? <Loader type="2" panel /> : null}
     </form>
   );
 };

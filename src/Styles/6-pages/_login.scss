@@ -1,7 +1,7 @@
 .login {
     min-height: 100vh;
     padding: 3rem 8rem;
-    box-shadow: inset 0px 0px 40px -5px rgba(27, 38, 60, 0.4);
+    box-shadow: inset 0px 0px 40px -8px rgba(27, 38, 60, 0.1);
 
     @include media('<=desktop') {
         padding: 3rem 6rem;
@@ -221,6 +221,7 @@
 
         @include media('<=tablet') {
             @include multiplyFontSize(1);
+
             .title {
                 justify-content: center;
             }
@@ -246,8 +247,9 @@
         }
     }
 
-    .loading-panel {
-        position: absolute;
+    /* .loading-panel {
+        z-index: 1000;
         height: 110%;
-    }
+    } */
+    
 }
