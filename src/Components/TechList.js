@@ -2,7 +2,6 @@
 import React, { useEffect, useState, lazy, Suspense } from "react";
 import Axios from "axios";
 import WxInput from "./Basics/WxInput";
-import WxText from "./Basics/WxText";
 import WxList from "./Basics/WxList";
 import Loader from "./Basics/loader";
 import Navbar from "./Layout/navbar/NavBar";
@@ -11,16 +10,13 @@ const Technologies = lazy(() => import("./Modules/techlist/technologies"));
 
 const TechList = () => {
   const [techList, setTechList] = useState();
-  const [sortedList, setSortedList] = useState();
-  const [techTypes, setTechTypes] = useState([
-    "Todos",
-    "Back-End",
-    "Front-End",
-    "Mobile",
-  ]);
+  const [sortedList, setSortedList] = useState(['']);
 
+  const [sortedBySelector, setSortedBySelector] = useState([]);
+  const [sortedByInput, setSortedByInput] = useState([]);
+
+  const techTypes = ["Todos", "Back-End", "Front-End", "Mobile"];
   const [alreadySorted, setAlreadySorted] = useState(false);
-  const [favList, setFavList] = useState([]);
 
   useEffect(() => {
     getData();
@@ -43,16 +39,7 @@ const TechList = () => {
     return apiData;
   };
 
-  const sortByType = (input) => {
-    let list =
-      input === "Todos"
-        ? techList
-        : techList.filter((tech) => tech["type"] === input);
-
-    setSortedList(list);
-  };
-
-  const sortByOrder = (input) => {
+  const sortByOrder = () => {
     let list = sortedList ? sortedList : techList;
 
     function compare(a, b) {
@@ -75,20 +62,57 @@ const TechList = () => {
     setSortedList(list);
   };
 
-  const sortByInput = (input) => {
-    let list = !input
-      ? techList
-      : techList.filter((tech) => {
-          return tech["tech"].toUpperCase().search(input.toUpperCase()) !== -1;
-        });
+  const typeFilter = (array, input) => {
+    return array.filter((tech) => tech["type"] === input);
+  };
 
-    setSortedList(list);
+  const inputFilter = (array, input) => {
+    return array.filter(
+      (tech) => tech["tech"].toUpperCase().search(input.toUpperCase()) !== -1
+    );
+  };
+
+  const filterByType = (input) => {
+    let newList = [];
+    if (sortedByInput.length !== 0) {
+      if (input === "Todos") {
+        newList = sortedByInput;
+        setSortedBySelector([]);
+      } else {
+        newList = typeFilter(sortedByInput, input);
+        setSortedBySelector(typeFilter(techList, input));
+      }
+    } else {
+      if (input === "Todos") {
+        newList = techList;
+        setSortedBySelector([]);
+      } else {
+        newList = typeFilter(techList, input);
+        setSortedBySelector(newList);
+      }
+    }
+
+    setSortedList(newList);
+  };
+
+  const filterByInput = (input) => {
+    let newList = [];
+
+    if (sortedBySelector.length !== 0) {
+      newList = inputFilter(sortedBySelector, input);
+      setSortedByInput(inputFilter(techList,input));
+    } else {
+      newList = inputFilter(techList, input);
+      setSortedByInput(newList);  
+    }
+
+    setSortedList(newList);
   };
 
   return (
     <div className="tech-list">
       <Suspense fallback={<Loader panel type="2" />}>
-        <Navbar userFavs={favList} className="navbar" hideLinks />
+        <Navbar className="navbar" hideLinks />
         <div className="searchBar r-c-fe">
           <WxInput
             color="blue"
@@ -96,7 +120,7 @@ const TechList = () => {
             fontWeight="5"
             name="tech-name"
             className="input"
-            onChange={(e) => sortByInput(e.target.value)}
+            onChange={(e) => filterByInput(e.target.value)}
           />
           <WxList
             labelContent="Sector"
@@ -105,12 +129,10 @@ const TechList = () => {
             listFontWeight="5"
             listItems={techTypes}
             className="listSelect"
-            onChange={(e) => sortByType(e.target.value)}
+            onChange={(e) => filterByType(e.target.value)}
           />
         </div>
         <Technologies
-          favList={favList}
-          setFavList={setFavList}
           sorter={(e) => sortByOrder(e)}
           className="list"
           dataToList={sortedList}

@@ -6,7 +6,7 @@ const WxSelector = ({catchValue}) => {
 
   useEffect(() => {
     catchValue(checked);
-  }, [checked])
+  }, [checked, catchValue])
 
   return (
     <div className="selector-container r-c-c">

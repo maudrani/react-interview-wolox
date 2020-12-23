@@ -1,40 +1,10 @@
-import React, { useState, useEffect } from "react";
 import LikeBtn from "./likeBtn";
 import { useLocalStorage } from "../../dB/useLocalStorage";
+import WxText from "../../Basics/WxText";
 
-const Technologies = ({ className, dataToList, sorter, favList, setFavList }) => {
-  const [hasData, setHasData] = useState(false);
-  const [userData, setUserData] = useLocalStorage("user", "");
+const Technologies = ({ className, dataToList, sorter }) => {
+  const [favList, setFavList] = useLocalStorage("favs", []);
 
-  const saveFav = (key) => {
-    let techName = dataToList[key].tech;
-    let existInFav = favList.includes(techName);
-
-    if (!existInFav) {
-      setFavList([...favList, techName]);
-    } else {
-      let newList = favList;
-      let deleteIndex = newList.indexOf(techName);
-      newList.splice(deleteIndex, 1);
-      setFavList(newList);
-    }
-
-    setUserData({ ...userData, favList: favList });
-  };  
-
-  useEffect(() => {
-    if (dataToList) {
-      setHasData(true);
-    }
-  }, [dataToList]);
-
-  useEffect(() => {
-    try {
-      setFavList(userData.favList);
-    } catch (err){
-      console.log(err);
-    }
-  }, [])
 
   return (
     <div className={`${className} `}>
@@ -53,64 +23,77 @@ const Technologies = ({ className, dataToList, sorter, favList, setFavList }) =>
       </ul>
 
       <div className="dataPanel">
-        {!hasData
-          ? null
-          : dataToList.map((item, key) => {
-              return (
-                <div key={key} className="r-c-c tech-row">
-                  <div className="r-c-c">
-                    <LikeBtn name={item.tech} saveFav={() => saveFav(key)} />
-                  </div>
-                  <ul key={key} className="r-sa-c tech-data">
-                    <li>
-                      <span className="inset-description fw-2 fc-gray">
-                        Logo:
-                      </span>
-                      <img src={item.logo} alt="logo-tech"></img>
-                    </li>
-                    <li>
-                      <span className="inset-description fw-2 fc-gray">
-                        Tecnoligía:
-                      </span>
-                      {item.tech}
-                    </li>
-                    <li>
-                      {" "}
-                      <span className="inset-description fw-2 fc-gray">
-                        Autor:
-                      </span>
-                      {item.author}
-                    </li>
-                    <li>
-                      {" "}
-                      <span className="inset-description fw-2 fc-gray">
-                        Lenguaje:
-                      </span>
-                      {item.language}
-                    </li>
-                    <li>
-                      <span className="inset-description fw-2 fc-gray">
-                        Sector:
-                      </span>
-                      {item.type}
-                    </li>
-                    <li>
-                      <span className="inset-description fw-2 fc-gray">
-                        Año:
-                      </span>
-                      {item.year}
-                    </li>
-                    <li>
-                      {" "}
-                      <span className="inset-description fw-2 fc-gray">
-                        Licencia:
-                      </span>
-                      {item.license}
-                    </li>
-                  </ul>
+        {dataToList.length === 0 ? (
+          <div className="r-c-c">
+            <WxText size="4" content="error-5[Sin resultados]" />
+          </div>
+        ) : (
+          dataToList.map((item, key) => {
+            return (
+              <div key={key} className="r-c-c tech-row">
+                <div className="r-c-c">
+                  <LikeBtn
+                    favList={favList}
+                    name={item.tech}
+                    saveList={setFavList}
+                  />
                 </div>
-              );
-            })}
+                <ul key={key} className="r-sa-c tech-data">
+                  <li>
+                    <span className="inset-description fw-2 fc-gray">
+                      Logo:
+                    </span>
+                    <img src={item.logo} alt="logo-tech"></img>
+                  </li>
+                  <li>
+                    <span className="inset-description fw-2 fc-gray">
+                      Tecnoligía:
+                    </span>
+                    {item.tech}
+                  </li>
+                  <li>
+                    {" "}
+                    <span className="inset-description fw-2 fc-gray">
+                      Autor:
+                    </span>
+                    {item.author}
+                  </li>
+                  <li>
+                    {" "}
+                    <span className="inset-description fw-2 fc-gray">
+                      Lenguaje:
+                    </span>
+                    {item.language}
+                  </li>
+                  <li>
+                    <span className="inset-description fw-2 fc-gray">
+                      Sector:
+                    </span>
+                    {item.type}
+                  </li>
+                  <li>
+                    <span className="inset-description fw-2 fc-gray">Año:</span>
+                    {item.year}
+                  </li>
+                  <li>
+                    {" "}
+                    <span className="inset-description fw-2 fc-gray">
+                      Licencia:
+                    </span>
+                    {item.license}
+                  </li>
+                </ul>
+              </div>
+            );
+          })
+        )}
+      </div>
+      <div className="r-c-c">
+        <WxText
+          size="4"
+          weight="5"
+          content={`Total de tecnologías: ${dataToList.length}`}
+        />
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useLocalStorage } from "../../dB/useLocalStorage";
+import { useLocation } from "react-router-dom";
 import WxButton from "../../Basics/WxButton";
 import Loader from "../../Basics/loader";
 import logo from "../../../Assets/logo_full_color.svg";
@@ -9,41 +10,37 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import WxText from "../../Basics/WxText";
 import WxList from "../../Basics/WxList";
 
-const NavBar = ({
-  className,
-  ref,
-  references = {},
-  hideLinks = false,
-  userFavs,
-}) => {
+const NavBar = ({ className, ref, references = {}, hideLinks = false }) => {
   const [launchMenu, setLaunchMenu] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [Loading, setLoading] = useState(false);
   const [hide, setHide] = useState(false);
-  const [hideRegBtn, setHideBtn] = useState(false);
   const history = useHistory();
+  const location = useLocation();
+
   const [userData, setUserData] = useLocalStorage("user", "");
-  const [userName, setUserName] = useState();
+  const [favList, setFavList] = useLocalStorage("favs", []);
+
+  const clearFavs = () => {
+    setFavList([]);
+  };
+
+  const onScroll = () => {
+    const scrollCheck = window.scrollY > 10;
+    if (scrollCheck !== scrolled) {
+      setScrolled(scrollCheck);
+    }
+  };
 
   useEffect(() => {
-    console.log(userFavs);
-    try {
-      if (userData) {
-        setHideBtn(true);
-        setUserName(userData.name);
-        console.log(userFavs);
-      } else {
-        setHideBtn(false);
-        setUserName();
-      }
-    } catch {}
-  }, [userFavs, userData]);
-
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      window.scrollY < 1 ? setScrolled(false) : setScrolled(true);
-    });
-  }, []);
+    function watchScroll() {
+      window.addEventListener("scroll", onScroll);
+    }
+    watchScroll();
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  });
 
   const loadAndGo = (where) => {
     setLoading(true);
@@ -92,12 +89,10 @@ const NavBar = ({
             launchMenu ? "menu-launched" : "menu-hided"
           }`}
         >
-          {!userData ? null : (
+          {!userData ? null : location.pathname !== "/" ? null : (
             <li>
               <a
-                onClick={(e) =>
-                  setLaunchMenu(false) || history.push("/techlist")
-                }
+                onClick={(e) => setLaunchMenu(false) || loadAndGo("techlist")}
                 href="#Beneficios"
               >
                 Tecnologías
@@ -127,20 +122,26 @@ const NavBar = ({
             </li>
           )}
           <li>
-            {hideRegBtn ? (
+            {userData ? (
               <div className="r-sb-c userInterface">
-                <WxList
-                  className="r-sa-c fav-list"
-                  listFontSize="5"
-                  listItems={userFavs}
-                />
-                <a href="#logout" onClick={() => setUserData() || loadAndGo()}>
+                {location.pathname !== "/techlist" ? null : !favList ? null : (
+                  <WxList
+                    className="r-sa-c fav-list"
+                    listFontSize="5"
+                    labelContent="FavList"
+                    listItems={favList}
+                  />
+                )}
+                <a
+                  href="#logout"
+                  onClick={() => loadAndGo() || setUserData() || clearFavs()}
+                >
                   <WxText
                     className="reg-btn navbar-name"
                     size="5"
                     color="dark"
                     weight="1"
-                    content={userName}
+                    content={userData.name}
                   />
                 </a>
               </div>

@@ -2,21 +2,19 @@ import React, { useEffect, useState } from "react";
 import WxForm from "./Layout/form/WxForm";
 import WxText from "./Basics/WxText";
 import Loader from "./Basics/loader";
-import { useLocalStorage } from "./dB/useLocalStorage";
 import { useHistory } from "react-router-dom";
 
-const Login = () => {
+const Login = ({setUserData}) => {
   const [animation, setAnimation] = useState(0);
-  const [userData, setUserData] = useLocalStorage("user", {});
   const [Loading, setLoading] = useState();
 
   const history = useHistory();
 
-  const loadAndGo = () => {
+  const loadAndGo = (where) => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      history.push("/");
+      where ? history.push(`/${where}`) : history.push("/");
     }, 2500 * Math.random());
   };
 
@@ -32,7 +30,7 @@ const Login = () => {
     let { token } = await apiData.json();
 
     setUserData({ ...data, token: token });
-    loadAndGo();
+    loadAndGo('techlist');
   };
 
   useEffect(() => {

@@ -101,7 +101,7 @@ const WxInput = ({
     } else {
       setShowError(false);
     }
-  }, [actualMatchValue, match]);
+  }, [actualMatchValue, match, errorCatcher]);
 
   return (
     <div className={`input-container ${className} `}>
