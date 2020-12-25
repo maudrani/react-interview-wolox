@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { useLocalStorage } from "../../dB/useLocalStorage";
 import { useLocation } from "react-router-dom";
 import WxButton from "../../Basics/WxButton";
 import Loader from "../../Basics/loader";
@@ -8,46 +7,54 @@ import logo from "../../../Assets/logo_full_color.svg";
 import "../../Basics/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import WxText from "../../Basics/WxText";
-import WxList from "../../Basics/WxList";
 
-const NavBar = ({ className, ref, references = {}, hideLinks = false }) => {
+const NavBar = ({
+  className,
+  ref,
+  references = {},
+  hideLinks = false,
+  userData,
+  setUserData,
+}) => {
   const [launchMenu, setLaunchMenu] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [Loading, setLoading] = useState(false);
   const [hide, setHide] = useState(false);
   const history = useHistory();
   const location = useLocation();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const [userData, setUserData] = useLocalStorage("user", "");
-  const [favList, setFavList] = useLocalStorage("favs", []);
-
-  const clearFavs = () => {
-    setFavList([]);
-  };
-
-  const onScroll = () => {
-    const scrollCheck = window.scrollY > 10;
-    if (scrollCheck !== scrolled) {
-      setScrolled(scrollCheck);
-    }
-  };
+  const [favList, setFavList] = useState([]);
+  const [showFavList, setShowFavList] = useState(true);
 
   useEffect(() => {
-    function watchScroll() {
-      window.addEventListener("scroll", onScroll);
+    userData ? setIsLoggedIn(true) : setIsLoggedIn(false);
+    isLoggedIn && setFavList(userData.favList);
+  }, [userData, isLoggedIn]);
+
+  useEffect(() => {
+    function onScroll() {
+      if (window.scrollY !== 0) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
     }
-    watchScroll();
+
+    window.addEventListener("scroll", onScroll);
+
     return () => {
       window.removeEventListener("scroll", onScroll);
     };
-  });
+  }, [scrolled]);
 
-  const loadAndGo = (where) => {
+  const loadAndGo = ({ where = "", logOut = false }) => {
     setLoading(true);
     setTimeout(() => {
       setLaunchMenu(false);
       setLoading(false);
-      where ? history.push(`/${where}`) : history.push("/");
+      logOut && setUserData();
+      history.push(`/${where}`);
     }, 2500 * Math.random());
   };
 
@@ -85,21 +92,11 @@ const NavBar = ({ className, ref, references = {}, hideLinks = false }) => {
         </div>
 
         <ul
-          className={`r-sb-c fs-5 fw-2 ${
+          className={`r-sb-c fs-5 fw-2  ${
             launchMenu ? "menu-launched" : "menu-hided"
           }`}
         >
-          {!userData ? null : location.pathname !== "/" ? null : (
-            <li>
-              <a
-                onClick={(e) => setLaunchMenu(false) || loadAndGo("techlist")}
-                href="#Beneficios"
-              >
-                Tecnologías
-              </a>
-            </li>
-          )}
-          {hideLinks ? null : (
+          {!hideLinks && (
             <li>
               <a
                 onClick={(e) => setLaunchMenu(false) || ScrollTo(e)}
@@ -109,8 +106,8 @@ const NavBar = ({ className, ref, references = {}, hideLinks = false }) => {
                 Inicio
               </a>
             </li>
-          )}{" "}
-          {hideLinks ? null : (
+          )}
+          {!hideLinks && (
             <li>
               <a
                 onClick={(e) => setLaunchMenu(false) || ScrollTo(e)}
@@ -121,33 +118,69 @@ const NavBar = ({ className, ref, references = {}, hideLinks = false }) => {
               </a>
             </li>
           )}
+          {!isLoggedIn ? null : location.pathname !== "/" ? null : (
+            <li>
+              <a
+                onClick={(e) => setLaunchMenu(false) || loadAndGo("techlist")}
+                href="#Beneficios"
+              >
+                Tecnologías
+              </a>
+            </li>
+          )}
           <li>
-            {userData ? (
-              <div className="r-sb-c userInterface">
-                {location.pathname !== "/techlist" ? null : !favList ? null : (
-                  <WxList
-                    className="r-sa-c fav-list"
-                    listFontSize="5"
-                    labelContent="FavList"
-                    listItems={favList}
+            {isLoggedIn && location.pathname === "/techlist" && (
+              <div className="c-c-fe favs-container">
+                <div className="c-c-fe" onClick={() => setShowFavList(!showFavList)}>
+                  <FontAwesomeIcon
+                    icon={["fas", "heart"]}
+                    size={favList.length === 0 ? "lg" : "2x"}
+                    className={`menu-launcher fc-${
+                      favList.length === 0 ? "gray" : "blue"
+                    } `}
+                    
                   />
+
+                  {favList.length !== 0 && (
+                    <span className="favs-amount r-c-c">
+                      <p className="fw-1 fc-blue">{favList.length}</p>
+                    </span>
+                  )}
+                </div>
+                {favList.length !== 0 && showFavList && (
+                  <div className="likes-container c-c-c">
+                    {favList.map((item, key) => {
+                      return (
+                        <div
+                          key={key}
+                          className="like-description fc-blue r-sb-c"
+                        >
+                          <p className="fs-6 fw-5 fc-dark">
+                            <strong className="fc-blue">{item}</strong> Se
+                            añadió a favoritos
+                          </p>
+                        </div>
+                      );
+                    })}
+                  </div>
                 )}
-                <a
-                  href="#logout"
-                  onClick={() => loadAndGo() || setUserData() || clearFavs()}
-                >
-                  <WxText
-                    className="reg-btn navbar-name"
-                    size="5"
-                    color="dark"
-                    weight="1"
-                    content={userData.name}
-                  />
-                </a>
               </div>
+            )}
+          </li>
+          <li>
+            {isLoggedIn ? (
+              <a href="#logout" onClick={() => loadAndGo({ logOut: true })}>
+                <WxText
+                  className="navbar-name"
+                  size="5"
+                  color="dark"
+                  weight="1"
+                  content={`${userData.name}`}
+                />
+              </a>
             ) : (
               <WxButton
-                onClick={() => loadAndGo("login")}
+                onClick={() => loadAndGo({ where: "login" })}
                 className={`reg-btn`}
                 outline
                 content="Registro"

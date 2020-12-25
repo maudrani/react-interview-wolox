@@ -9,26 +9,28 @@ const WxList = ({
   listFontWeight,
   onChange,
   name,
-  listItems,
+  listItems = [],
   onClick,
   placeholder,
+  forwardedRef,
 }) => {
   return (
     <div onClick={onClick} className={`wx-list ${className}`}>
       <label
         className={`fs-${labelFontSize} fw-${labelFontWeight} `}
-        htmlFor="list"
+        htmlFor={name}
       >
         {labelContent}
       </label>
       <select
+        ref={forwardedRef}
         placeholder={placeholder}
         className={`fs-${listFontSize} fw-${listFontWeight} `}
         onChange={onChange}
         name={name}
-        id="list"
+        id={name}
       >
-         {listItems.map((item, key) => {
+        {listItems.map((item, key) => {
           return (
             <option
               className={`fs-${listFontSize} fw-${listFontWeight} `}

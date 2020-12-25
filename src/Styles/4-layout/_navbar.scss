@@ -24,22 +24,11 @@
 }
 
 .navbar .container {
-    @include griding(1fr, 61% 39%);
+    @include griding(1fr, 55% 45%);
     padding: 4rem 6rem;
     transition: 0.4s;
 
-    .userInterface {
-        min-width: 20vw;
-        .fav-list {
-            min-width: 10rem;
-        }
-
-        @include media('<=tablet') {
-            min-width: 100vw;
-            min-height: 30vh;
-            @include flex(column, space-around);
-        }
-    }
+   
 
     .logo-container {
         height: 100%;

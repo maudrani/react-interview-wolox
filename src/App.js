@@ -6,16 +6,24 @@ import RouteError from "./Components/Modules/routeError";
 import TechList from "./Components/TechList";
 
 function App() {
-  const [userData, setUserData] = useLocalStorage("user", '');
+  const [userData, setUserData] = useLocalStorage("user", "");
 
   return (
     <div>
       <Router>
         <Switch>
-          <Route path="/" exact> <Landing userData={userData} /> </Route>
-          <Route path="/login"><Login setUserData={setUserData} /> </Route>
-          {!userData ? null : 
-          <Route path="/techlist" component={TechList} />}
+          <Route path="/" exact>
+            <Landing userData={userData} setUserData={setUserData} />
+          </Route>
+          <Route path="/login">
+            <Login setUserData={setUserData} />
+          </Route>
+          {userData && (
+            <Route path="/techlist">
+              {" "}
+              <TechList userData={userData} setUserData={setUserData} />{" "}
+            </Route>
+          )}
           <Route component={RouteError} />
         </Switch>
       </Router>

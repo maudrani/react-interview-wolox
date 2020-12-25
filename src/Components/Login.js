@@ -4,7 +4,7 @@ import WxText from "./Basics/WxText";
 import Loader from "./Basics/loader";
 import { useHistory } from "react-router-dom";
 
-const Login = ({setUserData}) => {
+const Login = ({ setUserData }) => {
   const [animation, setAnimation] = useState(0);
   const [Loading, setLoading] = useState();
 
@@ -28,17 +28,17 @@ const Login = ({setUserData}) => {
     );
 
     let { token } = await apiData.json();
-
+    console.log(data);
     setUserData({ ...data, token: token });
-    loadAndGo('techlist');
+    loadAndGo("techlist");
   };
 
   useEffect(() => {
     const interval = setInterval(() => {
       setAnimation(Math.floor(Math.random() * 3) + 1);
-    }, 8000);
+    }, 7000);
     return () => clearInterval(interval);
-  }, []);
+  }, [animation]);
 
   return (
     <div className="login c-c-c">
@@ -66,7 +66,7 @@ const Login = ({setUserData}) => {
             />
           </div>
 
-          <WxForm createPackage={createUserData} />
+          <WxForm getFormData={createUserData} />
         </div>
       </div>
     </div>

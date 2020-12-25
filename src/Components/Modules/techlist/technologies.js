@@ -2,9 +2,14 @@ import LikeBtn from "./likeBtn";
 import { useLocalStorage } from "../../dB/useLocalStorage";
 import WxText from "../../Basics/WxText";
 
-const Technologies = ({ className, dataToList, sorter }) => {
+const Technologies = ({
+  className,
+  dataToList,
+  sorter,
+  userData,
+  setUserData,
+}) => {
   const [favList, setFavList] = useLocalStorage("favs", []);
-
 
   return (
     <div className={`${className} `}>
@@ -33,6 +38,8 @@ const Technologies = ({ className, dataToList, sorter }) => {
               <div key={key} className="r-c-c tech-row">
                 <div className="r-c-c">
                   <LikeBtn
+                    userData={userData}
+                    setUserData={setUserData}
                     favList={favList}
                     name={item.tech}
                     saveList={setFavList}

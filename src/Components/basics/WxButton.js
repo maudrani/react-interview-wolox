@@ -11,9 +11,11 @@ const WxButton = ({
   onClick,
   type,
   disabled = false,
+  form,
 }) => {
   return (
     <button
+      form={form}
       type={type}
       onClick={onClick}
       className={`btn-${color}-${outline ? "outline" : "normal"} ${className}`}

@@ -6,21 +6,17 @@ import WxList from "./Basics/WxList";
 import Loader from "./Basics/loader";
 import Navbar from "./Layout/navbar/NavBar";
 
-const Technologies = lazy(() => import("./Modules/techlist/technologies"));
+const Technologies = lazy(() => import("./Modules/techlist/Technologies"));
 
-const TechList = () => {
+const TechList = ({ userData, setUserData }) => {
   const [techList, setTechList] = useState();
-  const [sortedList, setSortedList] = useState(['']);
+  const [sortedList, setSortedList] = useState([""]);
 
   const [sortedBySelector, setSortedBySelector] = useState([]);
   const [sortedByInput, setSortedByInput] = useState([]);
 
   const techTypes = ["Todos", "Back-End", "Front-End", "Mobile"];
   const [alreadySorted, setAlreadySorted] = useState(false);
-
-  useEffect(() => {
-    getData();
-  }, []);
 
   const getData = () => {
     let apiData;
@@ -38,6 +34,10 @@ const TechList = () => {
 
     return apiData;
   };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   const sortByOrder = () => {
     let list = sortedList ? sortedList : techList;
@@ -100,10 +100,10 @@ const TechList = () => {
 
     if (sortedBySelector.length !== 0) {
       newList = inputFilter(sortedBySelector, input);
-      setSortedByInput(inputFilter(techList,input));
+      setSortedByInput(inputFilter(techList, input));
     } else {
       newList = inputFilter(techList, input);
-      setSortedByInput(newList);  
+      setSortedByInput(newList);
     }
 
     setSortedList(newList);
@@ -112,7 +112,7 @@ const TechList = () => {
   return (
     <div className="tech-list">
       <Suspense fallback={<Loader panel type="2" />}>
-        <Navbar className="navbar" hideLinks />
+        <Navbar userData={userData} setUserData={setUserData} className="navbar" hideLinks />
         <div className="searchBar r-c-fe">
           <WxInput
             color="blue"
@@ -133,6 +133,8 @@ const TechList = () => {
           />
         </div>
         <Technologies
+          userData={userData}
+          setUserData={setUserData}
           sorter={(e) => sortByOrder(e)}
           className="list"
           dataToList={sortedList}
