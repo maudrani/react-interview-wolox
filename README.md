@@ -10,6 +10,10 @@
 
 ---
 
+**[Uploaded Version!](https://nervous-banach-5cc41a.netlify.app/)**
+
+---
+
 <h3>Technologies Used:</h3>
 <ul style="font-size: 13px;">
 <li>React Hooks.</li> 
