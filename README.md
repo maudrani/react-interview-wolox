@@ -10,7 +10,7 @@
 
 ---
 
-**[Uploaded Version!](https://optimistic-stonebraker-66d273.netlify.app)**
+**[Uploaded Version!](https://frosty-mccarthy-dfc8f6.netlify.app/)**
 
 ---
 

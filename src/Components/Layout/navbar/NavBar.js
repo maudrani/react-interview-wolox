@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import XYText from "../../basics/XYText";
 
 const NavBar = ({
-  className,
+  className = '',
   ref,
   references = {},
   hideLinks = false,
@@ -18,9 +18,9 @@ const NavBar = ({
   setUserData,
 }) => {
   const [launchMenu, setLaunchMenu] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState();
   const [Loading, setLoading] = useState(false);
-  const [hide, setHide] = useState(false);
+  const [hide, setHide] = useState();
   const history = useHistory();
   const location = useLocation();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -81,8 +81,8 @@ const NavBar = ({
   return (
     <div
       ref={ref}
-      className={`navbar ${className} ${scrolled ? "nav-scrolled" : null} ${
-        hide ? "nav-hided" : null
+      className={`navbar ${className} ${scrolled && "nav-scrolled "} ${
+        hide && "nav-hided "
       }`}
     >
       {Loading ? <Loader type="2" panel /> : null}
@@ -95,7 +95,7 @@ const NavBar = ({
 
           <button
             className="menu-launcher r-c-c"
-            onClick={() => setLaunchMenu(launchMenu ? false : true)}
+            onClick={() => setLaunchMenu(!launchMenu)}
           >
             <FontAwesomeIcon
               icon={["fas", launchMenu ? "times" : "bars"]}
