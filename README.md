@@ -10,7 +10,7 @@
 
 ---
 
-**[Uploaded Version!](https://nervous-ptolemy-4af7fa.netlify.app/)**
+**[Uploaded Version!](https://relaxed-kowalevski-bfc87a.netlify.app)**
 
 ---
 
