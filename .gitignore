@@ -2,7 +2,6 @@
 
 # dependencies
 /node_modules
-/build
 /Info
 /.pnp
 .pnp.js

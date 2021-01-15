@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react/cjs/react.development";
+import React, { useState } from "react";
 
 const XYSelector = ({ onClick, forwardedRef, name, check = false }) => {
   const [checked, setChecked] = useState(check);

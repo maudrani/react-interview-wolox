@@ -10,10 +10,11 @@ const Login = ({ setUserData }) => {
 
   const history = useHistory();
 
-  const loadAndGo = (where) => {
+  const createUser = (where, data, token) => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
+      setUserData({ ...data, token: token });
       where ? history.push(`/${where}`) : history.push("/");
     }, 2500 * Math.random());
   };
@@ -28,9 +29,7 @@ const Login = ({ setUserData }) => {
     );
 
     let { token } = await apiData.json();
-    console.log(data);
-    setUserData({ ...data, token: token });
-    loadAndGo("techlist");
+    createUser("techlist", data, token);
   };
 
   useEffect(() => {

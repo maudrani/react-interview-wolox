@@ -10,7 +10,7 @@
 .hero .container {
     @include griding(1fr, 1fr 1fr);
     padding: 0 6rem;
-    height: 95vh;
+    height: 100vh;
     max-width: 100vw;
 
     .title-container {
@@ -23,7 +23,7 @@
     }
 
     .img-container {
-        height: 100% !important;
+        height: 100%;
         width: 100%;
 
         @include media('<=tablet'){
@@ -71,17 +71,17 @@
     }
 
     @include media("<=tablet") {
-        @include griding(.4fr .5fr, 1fr);
+        @include griding(1fr 1.9fr, 1fr);
         @include multiplyFontSize(0.8);
 
         padding: 3rem;
         margin-top: 2rem;
 
-        height: 100%;
+        height: 100vh;
         text-align: center;
 
         .title-container .title {
-            margin: 0;
+            margin: 1.5rem 0 0 0;
             padding: 0;
         }
 
@@ -89,15 +89,15 @@
             justify-content: center;
 
             img {
-                margin-top: 0;
+                margin-top: 3rem;
             }
         }
     }
 
     @include media("<=phone") {
-        height: 100%;
+        height: 100vh;
         width: 100%;
-        @include griding(1fr 1.9fr, 1fr);
+
         @include multiplyFontSize(0.6);
 
 
@@ -106,7 +106,7 @@
         }
 
         .img-container {
-            width: 100vw;
+            width: 90vw;
             background-image: url('../../Assets/Img-Hero/Ic_ilustra_Hero.svg');
             @include bgImageOptions(contain, no-repeat);
 

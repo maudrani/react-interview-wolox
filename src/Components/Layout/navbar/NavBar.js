@@ -193,7 +193,7 @@ const NavBar = ({
                 <XYText
                   className="navbar-name"
                   size="5"
-                  color="dark"
+                  color="blue"
                   weight="1"
                   content={`${userData.name}`}
                 />

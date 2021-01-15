@@ -9,8 +9,8 @@ import Navbar from "./Layout/navbar/NavBar";
 const Technologies = lazy(() => import("./Modules/techlist/technologies"));
 
 const TechList = ({ userData, setUserData }) => {
-  const [techList, setTechList] = useState();
-  const [sortedList, setSortedList] = useState([""]);
+  const [techList, setTechList] = useState([]);
+  const [sortedList, setSortedList] = useState([]);
 
   const [sortedBySelector, setSortedBySelector] = useState([]);
   const [sortedByInput, setSortedByInput] = useState([]);

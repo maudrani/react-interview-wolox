@@ -4,7 +4,7 @@ import XYText from "../../basics/XYText";
 
 const Technologies = ({
   className,
-  dataToList,
+  dataToList = [],
   sorter,
   userData,
   setUserData,
@@ -28,11 +28,7 @@ const Technologies = ({
       </ul>
 
       <div className="dataPanel">
-        {dataToList.length === 0 ? (
-          <div className="r-c-c">
-            <XYText size="4" content="error-5[Sin resultados]" />
-          </div>
-        ) : (
+        {dataToList.length !== 0 &&
           dataToList.map((item, key) => {
             return (
               <div key={key} className="r-c-c tech-row">
@@ -92,14 +88,17 @@ const Technologies = ({
                 </ul>
               </div>
             );
-          })
-        )}
+          })}
       </div>
       <div className="results-amount r-c-c">
         <XYText
           size="4"
           weight="5"
-          content={`blue-1[Results: ] dark-1[${dataToList.length}]`}
+          content={
+            dataToList.length !== 0
+              ? `blue-1[Results: ] dark-1[${dataToList.length}]`
+              : "error-2[No Results]"
+          }
         />
       </div>
     </div>

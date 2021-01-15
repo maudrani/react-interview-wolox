@@ -15,9 +15,11 @@ function App() {
           <Route path="/" exact>
             <Landing userData={userData} setUserData={setUserData} />
           </Route>
-          <Route path="/login">
-            <Login setUserData={setUserData} />
-          </Route>
+          {!userData && (
+            <Route path="/login">
+              <Login setUserData={setUserData} />
+            </Route>
+          )}
           {userData && (
             <Route path="/techlist">
               {" "}
