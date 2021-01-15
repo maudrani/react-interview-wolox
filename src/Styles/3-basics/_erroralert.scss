@@ -1,0 +1,43 @@
+.XYalert {
+    transition: all 0.5s;
+    position: absolute;
+    left: 15%;
+    right: 15%;
+    padding: 10px;
+    background-color: #f44336;
+    border-radius: 1vh;
+    color: white;
+
+    @include media('<=tablet') {
+        left: 0%;
+        right: 0%;
+        top: 0%;
+    }
+
+    .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .closebtn:hover {
+        color: black;
+    }
+}
+
+.closeerror {
+    top: -50%;
+}
+
+.openerror {
+    top: 1%;
+
+    @include media('<=tablet') {
+        top: 0%;
+    }
+}

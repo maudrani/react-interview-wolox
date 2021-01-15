@@ -1,0 +1,36 @@
+.benefits {
+    height: 120vh;
+
+    @include media('<=desktop') {
+        height: 100%;
+    }
+
+    .container {
+        padding: 3rem;
+
+        @include griding(1fr 1fr, 1fr);
+
+        .promo-title {
+            text-align: center;
+        }
+
+        @include media('<=desktop') {
+            @include multiplyFontSize(0.85);
+        }
+
+
+        @include media('<=laptop') {
+            padding: 1rem;
+            @include griding(.5fr 1fr, 1fr);
+            .benefits-list {
+                padding: 1rem 0;
+            }
+        }
+
+        @include media('<=phone') {
+            .promo-title {
+                padding: 2rem .5rem;
+            }
+        }
+    }
+}

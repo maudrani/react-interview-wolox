@@ -1,0 +1,51 @@
+.benefit {
+    @include griding(1fr 1fr, 1fr);
+    height: 100%;
+    width: 100%;
+    padding: 2rem;
+
+    .img-container {
+        height: 100%;
+
+        .image {
+            width: 6rem;
+            padding-bottom: 2rem;
+            align-self: center;
+        }
+    }
+
+    .title-container {
+        height: 100%;
+        text-align: center;
+    }
+
+    @include media('<=tv'){
+        @include multiplyFontSize(0.8);
+        padding: 1rem;
+    }
+
+    @include media('<=laptop'){
+        .img-container .image{
+            width: 50%;
+        }
+    }
+
+    @include media('<=tablet'){
+        .img-container .image{
+            width: 50%;
+            min-width: 5rem;
+        }
+        padding:0 .3rem;
+    }
+
+    @include media('<=phone'){
+        padding: .5rem;
+        .img-container .image{
+            width: 40%;
+            min-width: 10rem;
+        }
+        .title-container {
+            padding:0 1rem;
+        }
+    }
+}

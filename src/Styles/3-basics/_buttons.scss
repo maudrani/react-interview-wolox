@@ -1,0 +1,11 @@
+// Generated Classes
+@each $style in $button-styles {
+
+    @each $name,
+    $color in $colors {
+
+        .btn-#{$name}-#{$style} {
+            @include stylizeButton($style, $color);
+        }
+    }
+}

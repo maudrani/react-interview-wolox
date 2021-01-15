@@ -1,0 +1,104 @@
+.promo .container {
+    @include griding(1fr, 55% 45%);
+
+    .img-container {
+        height: 100%;
+
+        .socialmedia-container {
+            position: absolute;
+            z-index: 1;
+            padding-top: 2.5rem;
+            height: 40%;
+
+            .socialmedia-description {
+                padding-top: 3rem;
+                padding-right: 2rem;
+
+                .icon {
+                    color: white;
+                    margin-right: 1rem;
+                }
+            }
+
+            .btn-follow {
+                width: 62%;
+                height: 22%;
+                max-height: 4rem;
+            }
+        }
+
+        img {
+            position: relative;
+            width: 100%;
+        }
+    }
+
+    .title-container {
+        background-color: $wolox-whitesmoke;
+        height: 100%;
+        padding: 3rem 4rem 3rem 1.7rem;
+
+        .title {
+            text-align: center;
+        }
+    }
+
+    @include media('<=laptop') {
+        @include multiplyFontSize(0.8);
+        .socialmedia-container {
+            @include multiplyFontSize(0.6);
+            justify-content: center;
+            padding: 2rem 0;
+        }
+    }
+
+    @include media('<=tablet') {
+        @include griding(1fr 2fr, 1fr);
+
+        .socialmedia-container {
+            @include multiplyFontSize(0.8);
+            justify-content: center;
+
+            .title {
+                padding: 1rem;
+            }
+
+            .socialmedia-description {
+                padding: 0rem 0 2rem 0;
+            }
+        }
+
+        .title-container {
+            padding: 3rem;
+        }
+    }
+
+    @include media('<=phone') {
+        @include griding(1fr 1fr, 1fr);
+        @include multiplyFontSize(0.7);
+
+        .socialmedia-container {
+            @include multiplyFontSize(0.65);
+
+            .title {
+                padding: 0;
+            }
+
+            .socialmedia-description {
+                padding: 2rem 0;
+            }
+        }
+
+        .img-container {
+            @include bgImageOptions(cover, no-repeat, top);
+
+            img {
+                display: none;
+            }
+        }
+
+        .title-container {
+            height: 100vh;
+        }
+    }
+}

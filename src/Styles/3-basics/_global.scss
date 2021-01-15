@@ -1,0 +1,36 @@
+html {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: $font-size-main; //Cambiar con media queries
+    scroll-behavior: smooth;
+    /* overflow-x: hidden; */
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: $font-family;
+    transition: $transition-main;
+    outline: none;
+}
+
+a,
+p,
+h1,
+h2,
+h3,
+h4 {
+    color: $wolox-dark;
+    text-decoration: none;
+}
+
+
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

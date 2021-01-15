@@ -1,0 +1,59 @@
+.footer {
+    background-image: url('../../Assets/Backgrounds/Bg_Footer.svg');
+    @include bgImageOptions(cover, no-repeat, bottom);
+
+
+    @include media('<=laptop') {
+        @include bgImageOptions(contain, repeat);
+    }
+
+}
+
+.footer .container {
+    height: 100%;
+    padding: .5rem 3rem 0 3rem;
+    @include griding(.1fr .1fr .5fr .5fr, 1fr);
+
+    .main-title,
+    .sub-title {
+        text-align: center;
+    }
+
+    .main-title {
+        padding: .5rem;
+    }
+
+    .logo-container img {
+        padding-bottom: 2rem;
+        width: 10%;
+    }
+
+    @include media('<=laptop') {
+        @include multiplyFontSize(0.8);
+    }
+
+    @include media('<=tablet') {
+        @include multiplyFontSize(0.7);
+
+        @include griding(1fr .1fr .8fr .5fr, 1fr);
+
+        height: 80%;
+
+        .main-title {
+            padding-bottom: 2rem;
+        }
+
+        .logo-container img {
+            width: 30%;
+        }
+    }
+
+    @include media('<=phone') {
+        padding: 2rem 2rem 0rem 2rem;
+        @include multiplyFontSize(0.65);
+
+        .main-title {
+            padding-bottom: 3rem;
+        }
+    }
+}

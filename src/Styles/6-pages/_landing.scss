@@ -1,0 +1,17 @@
+.landing {
+    .hero {
+        margin-bottom: 4.7rem;
+    }
+
+    .benefits {
+        margin-top: 1rem;
+    }
+
+    .footer {
+        height: 63vh;
+
+        @include media('<=tablet'){
+            height: 83vh;
+        }
+    }
+}
