@@ -15,6 +15,12 @@ html {
     font-family: $font-family;
     transition: $transition-main;
     outline: none;
+
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
 a,

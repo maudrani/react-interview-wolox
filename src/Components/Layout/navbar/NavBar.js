@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import XYText from "../../basics/XYText";
 
 const NavBar = ({
-  className = '',
+  className = "",
   ref,
   references = {},
   hideLinks = false,
@@ -113,7 +113,11 @@ const NavBar = ({
           <li>
             <a
               onClick={(e) =>
-                setLaunchMenu(false) || isLoggedIn ? loadAndGo("") : ScrollTo(e)
+                setLaunchMenu(false) || isLoggedIn
+                  ? location.pathname !== "/"
+                    ? loadAndGo("")
+                    : ScrollTo(e)
+                  : ScrollTo(e)
               }
               id="HeroRef"
               href="#Inicio"
@@ -129,7 +133,7 @@ const NavBar = ({
                 id="BenefitsRef"
                 href="#Beneficios"
               >
-                Benefits
+                About CMS
               </a>
             </li>
           )}
@@ -145,7 +149,7 @@ const NavBar = ({
           )}
           <li>
             {isLoggedIn && location.pathname === "/techlist" && (
-              <div className="c-c-fe favs-container">
+              <div className="c-c-c favs-container">
                 <div
                   className="c-c-fe"
                   onClick={() => setShowFavList(!showFavList)}
@@ -166,6 +170,14 @@ const NavBar = ({
                 </div>
                 {favList.length !== 0 && showFavList && (
                   <div className="likes-container c-c-c">
+                    <div className="close-favlist-container r-fe-c">
+                      <span
+                        className="close-favlist r-c-c fw-1 fc-blue"
+                        onClick={() => setShowFavList(!showFavList)}
+                      >
+                        &times;
+                      </span>
+                    </div>
                     {favList.map((item, key) => {
                       return (
                         <div

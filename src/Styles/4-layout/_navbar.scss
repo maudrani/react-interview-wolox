@@ -65,6 +65,12 @@
         transition: all .3s;
         opacity: 1;
 
+        -webkit-transform: translateZ(0);
+        -moz-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        -o-transform: translateZ(0);
+        transform: translateZ(0);
+
         .navbar-name {
             &:hover {
                 color: $xy-blue;
@@ -78,7 +84,6 @@
 
     .hidden-menu-logo {
         display: none;
-
     }
 
     @include media('<=tv') {
@@ -126,6 +131,7 @@
         padding: 2rem 0rem;
         display: flex;
         flex-direction: column;
+
         @include multiplyFontSize(1.3);
 
         .logo-container {
@@ -168,7 +174,7 @@
             .hidden-menu-logo {
                 display: flex;
                 position: absolute;
-                bottom: 10%;
+                bottom: 20%;
                 width: 20%;
 
                 img {

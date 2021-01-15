@@ -11,11 +11,9 @@
 
     .navbar {
         .container {
-            @include flex(row, space-between, center);
 
             .favs-container {
                 min-width: 5rem;
-                margin-right: 2rem;
                 transition: .2s;
 
                 @include media('<=tablet') {
@@ -60,6 +58,31 @@
                     @include media('<=tablet') {
                         top: 30%;
                     }
+
+                    .close-favlist-container {
+                        width: 100%;
+                        height: 4.5vh;
+                        margin-top: -1rem;
+                        margin-bottom: -1rem;
+                        margin-right: -1.5rem;
+                        z-index: 8;
+                        
+
+                        .close-favlist {
+                            position: relative;
+                            background-color: white;
+                            cursor: pointer;
+                            width: 4vh;
+                            height: 4vh;
+                            border: 3px solid $xy-blue;
+                            border-radius: 50%;
+
+                            &:hover {
+                                transform: scale(1.1);
+                            }
+                        }
+                    }
+
 
                     .like-description {
                         width: 100%;
