@@ -52,7 +52,7 @@
                     padding: 3px;
                     top: 60%;
                     margin-top: 1rem;
-                    border: 2px solid $wolox-blue;
+                    border: 2px solid $xy-blue;
                     border-radius: 1vh;
                     background-color: white;
                     @include boxShadow();
@@ -78,7 +78,7 @@
                             transition: 0.3s;
 
                             &:hover {
-                                color: $wolox-dark;
+                                color: $xy-dark;
                             }
                         }
 
@@ -165,14 +165,14 @@
         }
 
         .dataPanel {
-            border-bottom: 1px solid $wolox-gray;
+            border-bottom: 1px solid $xy-gray;
 
             .btn-like {
                 transition: .2s;
 
                 &:hover {
                     transform: scale(1.5);
-                    color: $wolox-blue;
+                    color: $xy-blue;
                 }
             }
 
@@ -187,7 +187,7 @@
             .tech-row {
                 @include media('<=tablet') {
                     @include griding(1fr, 1fr 5fr);
-                    border-top: 1px solid $wolox-gray;
+                    border-top: 1px solid $xy-gray;
                 }
             }
 
@@ -197,7 +197,7 @@
                 min-height: 5rem;
                 list-style: none;
                 text-align: center;
-                border-bottom: 1px solid $wolox-gray;
+                border-bottom: 1px solid $xy-gray;
 
                 @include media('<=tablet') {
                     flex-direction: column;

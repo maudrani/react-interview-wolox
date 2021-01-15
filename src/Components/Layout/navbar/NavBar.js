@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import XYButton from "../../basics/XYButton";
 import Loader from "../../basics/loader";
 import logo from "../../../Assets/logo_full_color.svg";
+import logoSimple from "../../../Assets/logo-simple.svg";
 import "../../basics/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import XYText from "../../basics/XYText";
@@ -92,12 +93,16 @@ const NavBar = ({
         <div className="logo-container r-sb-c">
           <img alt="logo" src={logo} />
 
-          <FontAwesomeIcon
-            icon={["fas", launchMenu ? "times" : "bars"]}
-            size={"2x"}
-            className="fc-dark menu-launcher"
+          <button
+            className="menu-launcher r-c-c"
             onClick={() => setLaunchMenu(launchMenu ? false : true)}
-          />
+          >
+            <FontAwesomeIcon
+              icon={["fas", launchMenu ? "times" : "bars"]}
+              size={"2x"}
+              className="fc-dark "
+            />
+          </button>
         </div>
 
         <ul
@@ -203,6 +208,9 @@ const NavBar = ({
                 fontWeight="1"
               />
             )}
+          </li>
+          <li className="hidden-menu-logo r-c-c">
+            <img src={logoSimple} alt="logo" />
           </li>
         </ul>
       </div>

@@ -16,7 +16,7 @@ const Footer = () => {
           className="sub-title"
           size="4"
           weight="3"
-          content="green-1[Read ] dark-[about our ] blue-1[history]"
+          content="aqua-1[Read ] dark-[about our ] blue-1[history]"
         />
         <div className="btn-container r-c-c ">
           <XYButton

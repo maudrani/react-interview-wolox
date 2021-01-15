@@ -1,12 +1,11 @@
 .footer {
     background-image: url('../../Assets/Backgrounds/Bg_Footer.svg');
-    @include bgImageOptions(cover, no-repeat, bottom);
+    @include bgImageOptions(contain, no-repeat, center);
 
 
     @include media('<=laptop') {
         @include bgImageOptions(contain, repeat);
     }
-
 }
 
 .footer .container {
@@ -35,9 +34,9 @@
     @include media('<=tablet') {
         @include multiplyFontSize(0.7);
 
-        @include griding(1fr .1fr .8fr .5fr, 1fr);
+        @include griding(.5fr .05fr .2fr .5fr, 1fr);
 
-        height: 80%;
+        height: 100%;
 
         .main-title {
             padding-bottom: 2rem;

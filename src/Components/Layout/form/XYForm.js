@@ -32,7 +32,7 @@ const XYForm = ({ getFormData }) => {
   }, [sliderRef]);
 
   const settings = {
-    dots: true,
+    dots: false,
     arrows: false,
     swipe: false,
     accessibility: false,
@@ -268,7 +268,7 @@ const XYForm = ({ getFormData }) => {
       </div>
       <div className="form-item form-options r-sb-c">
         <a
-          className="fw-3 fs-6 fc-gray"
+          className="fw-1 fs-6 fc-gray"
           href="#cancel"
           onClick={cancelRegistry}
         >
@@ -291,7 +291,7 @@ const XYForm = ({ getFormData }) => {
             fontWeight="2"
             content="Create"
             outline
-            color="green"
+            color="aqua"
             type="submit"
             form="main-form"
           />

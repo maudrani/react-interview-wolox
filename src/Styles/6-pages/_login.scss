@@ -3,6 +3,9 @@
     padding: 3rem 8rem;
     box-shadow: inset 0px 0px 40px -8px rgba(27, 38, 60, 0.1);
 
+    background-image: url('../../Assets/Backgrounds/Bg_Footer.svg');
+    @include bgImageOptions(cover, repeat, center);
+
     @include media('<=desktop') {
         padding: 3rem 6rem;
     }
@@ -18,12 +21,14 @@
 
     @include media('<=phone') {
         min-height: 100%;
-        padding: 0rem !important;
+        padding: 0rem;
     }
 
     .main-panel {
         height: 100%;
         width: 100%;
+
+        background-color: rgb(255, 255, 255);
 
         @include griding(1fr, 1fr 1.2fr);
         box-shadow: 0px 3px 15px rgba(27, 38, 60, 0.25);
@@ -53,7 +58,7 @@
             position: relative;
             width: 50%;
             height: 50%;
-            fill: $wolox-dark;
+            fill: $xy-dark;
             filter: drop-shadow(0 0.2rem 0.225rem rgba(27, 38, 60, 0.4));
 
             @include media('<=tablet') {
@@ -66,7 +71,7 @@
 
             @keyframes animate-path1 {
                 0% {
-                    fill: $wolox-dark;
+                    fill: $xy-dark;
                 }
 
                 3% {
@@ -74,11 +79,11 @@
                 }
 
                 4% {
-                    fill: $wolox-blue;
+                    fill: $xy-blue;
                 }
 
                 40% {
-                    fill: $wolox-blue;
+                    fill: $xy-blue;
                 }
 
                 43% {
@@ -86,11 +91,11 @@
                 }
 
                 44% {
-                    fill: $wolox-green;
+                    fill: $xy-aqua;
                 }
 
                 80% {
-                    fill: $wolox-green;
+                    fill: $xy-aqua;
                 }
 
                 83% {
@@ -98,11 +103,11 @@
                 }
 
                 84% {
-                    fill: $wolox-dark;
+                    fill: $xy-dark;
                 }
 
                 100% {
-                    fill: $wolox-dark;
+                    fill: $xy-dark;
                 }
             }
         }
@@ -112,7 +117,7 @@
 
             @keyframes animate-polygon1 {
                 0% {
-                    fill: $wolox-dark;
+                    fill: $xy-dark;
                 }
 
                 3% {
@@ -120,11 +125,11 @@
                 }
 
                 4% {
-                    fill: $wolox-blue;
+                    fill: $xy-blue;
                 }
 
                 40% {
-                    fill: $wolox-blue;
+                    fill: $xy-blue;
                 }
 
                 43% {
@@ -132,11 +137,11 @@
                 }
 
                 44% {
-                    fill: $wolox-green;
+                    fill: $xy-aqua;
                 }
 
                 80% {
-                    fill: $wolox-green;
+                    fill: $xy-aqua;
                 }
 
                 83% {
@@ -144,11 +149,11 @@
                 }
 
                 84% {
-                    fill: $wolox-dark;
+                    fill: $xy-dark;
                 }
 
                 100% {
-                    fill: $wolox-dark;
+                    fill: $xy-dark;
                 }
             }
         }
@@ -161,7 +166,7 @@
 
                 @keyframes logoAnimation1 {
                     0% {
-                        fill: $wolox-dark;
+                        fill: $xy-dark;
                     }
 
                     7% {
@@ -170,7 +175,7 @@
                     }
 
                     14% {
-                        stroke: $wolox-dark;
+                        stroke: $xy-dark;
 
                         stroke-dasharray: 5;
                     }
@@ -180,7 +185,7 @@
                     }
 
                     93% {
-                        stroke: $wolox-dark;
+                        stroke: $xy-dark;
                         stroke-width: 0.1;
                         fill: transparent;
                         stroke-dasharray: 100
@@ -246,10 +251,5 @@
             }
         }
     }
-
-    /* .loading-panel {
-        z-index: 1000;
-        height: 110%;
-    } */
     
 }

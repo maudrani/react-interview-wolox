@@ -65,7 +65,7 @@ const Login = ({ setUserData }) => {
         <div className="data-panel">
           <div className="r-fs-c title">
             <XYText
-              content="dark-5[Cr] blue-5[ea] green-5[te ] dark-5[Acc] blue-5[ou] green-5[nt]"
+              content="dark-5[Cr] blue-5[ea] aqua-5[te ] dark-5[Acc] blue-5[ou] aqua-5[nt]"
               size="3"
             />
           </div>

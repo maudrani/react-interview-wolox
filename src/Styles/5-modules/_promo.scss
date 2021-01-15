@@ -34,7 +34,7 @@
     }
 
     .title-container {
-        background-color: $wolox-whitesmoke;
+        background-color: $xy-whitesmoke;
         height: 100%;
         padding: 3rem 4rem 3rem 1.7rem;
 
@@ -90,8 +90,8 @@
         }
 
         .img-container {
+            background-image: url('../../Assets/img_social.jpg');
             @include bgImageOptions(cover, no-repeat, top);
-
             img {
                 display: none;
             }

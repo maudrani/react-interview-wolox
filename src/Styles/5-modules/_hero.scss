@@ -95,10 +95,9 @@
     }
 
     @include media("<=phone") {
-
-        height: 100vh;
+        height: 100%;
         width: 100%;
-        @include griding(1fr 1.5fr, 1fr);
+        @include griding(1fr 1.9fr, 1fr);
         @include multiplyFontSize(0.6);
 
 

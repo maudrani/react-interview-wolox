@@ -23,7 +23,7 @@
   height: 4rem;
   border-radius: 50%;
   border: 5px solid rgb(255, 255, 255);
-  border-top-color: $wolox-blue;
+  border-top-color: $xy-blue;
   animation: spinner 0.7s linear infinite;
 }
 
@@ -41,8 +41,8 @@
   height: 4rem;
   border-radius: 50%;
   border: 4px solid transparent;
-  border-top-color: $wolox-blue;
-  border-bottom-color: $wolox-green;
+  border-top-color: $xy-blue;
+  border-bottom-color: $xy-aqua;
   animation: spinner 0.7s ease infinite;
 }
 
@@ -59,7 +59,7 @@
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
-  border-top: 4px solid $wolox-blue;
+  border-top: 4px solid $xy-blue;
   border-right: 4px solid transparent;
   animation: spinner 0.7s linear infinite;
 

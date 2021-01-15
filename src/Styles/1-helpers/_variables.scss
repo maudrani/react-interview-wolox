@@ -1,19 +1,19 @@
 //Colors
 
-$wolox-blue: #3488b7;
-$wolox-green: #98c4e2;
-$wolox-dark: #1B263C;
-$wolox-whitesmoke: #f0f0f0;
+$xy-blue: #3488b7;
+$xy-aqua: #98c4e2;
+$xy-dark: #1B263C;
+$xy-whitesmoke: #f0f0f0;
 $white: white;
-$wolox-gray: #9b9b9b;
+$xy-gray: #9b9b9b;
 $error-red: #f44336;
 
-$colors: (blue: $wolox-blue,
-    green: $wolox-green,
-    dark: $wolox-dark,
+$colors: (blue: $xy-blue,
+    aqua: $xy-aqua,
+    dark: $xy-dark,
     white:white,
-    whitesmoke: $wolox-whitesmoke,
-    gray: $wolox-gray,
+    whitesmoke: $xy-whitesmoke,
+    gray: $xy-gray,
     error: $error-red);
 
 

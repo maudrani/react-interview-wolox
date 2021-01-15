@@ -32,7 +32,7 @@
         fill: none;
         stroke-linecap: round;
         stroke-linejoin: round;
-        stroke: $wolox-gray;
+        stroke: $xy-gray;
         stroke-width: 1.5;
         transform: translate3d(0, 0, 0);
         transition: all 0.2s ease;
@@ -53,11 +53,11 @@
     }
 
     .check:hover svg {
-        stroke: $wolox-blue;
+        stroke: $xy-blue;
     }
 
     #cbx:checked+.check svg {
-        stroke: $wolox-blue;
+        stroke: $xy-blue;
     }
 
     #cbx:checked+.check svg path {
@@ -74,16 +74,16 @@
 
 .XY-list {
     label {
-        color: $wolox-gray;
+        color: $xy-gray;
     }
 
     select {
-        color: $wolox-dark;
+        color: $xy-dark;
         width: 100%;
         transition: all .2s;
         background: transparent;
         border: none;
-        border-bottom: 2px solid $wolox-gray;
+        border-bottom: 2px solid $xy-gray;
         height: 100%;
 
     }

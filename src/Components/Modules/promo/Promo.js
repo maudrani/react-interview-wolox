@@ -17,7 +17,7 @@ const Promo = () => {
             <XYText
               className="title c-c-c"
               size="1"
-              content="white-1[We are more than ] green-1[450 + ]"
+              content="white-1[We are more than ] aqua-1[450 + ]"
             />
 
             
@@ -52,7 +52,7 @@ const Promo = () => {
           <XYText
             size="3"
             weight="3"
-            content="dark-[Our job is to ] blue-1[convert ] green-1[great ideas ] dark-[into experiences.]"
+            content="dark-[Our job is to ] blue-1[convert ] aqua-1[great ideas ] dark-[into experiences.]"
             className="title"
           />
         </div>

@@ -11,7 +11,7 @@ const Hero = ({forwaredRef}) => {
             size="3"
             weight="4"
             className="title"
-            content="blue-2[XINERGY ] dark-[is a ] green-2[CMS ] dark-[Development agency]"
+            content="dark-[We are ] blue-2[XINERGY] dark-[, a dedicated ] aqua-2[CMS ] dark-[development agency]"
           />
         </div>
 

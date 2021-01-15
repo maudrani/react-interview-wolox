@@ -6,7 +6,7 @@
         transition: .2s;
 
         &:hover {
-            color: $wolox-dark;
+            color: $xy-dark;
         }
     }
 
@@ -19,7 +19,7 @@
             padding-left: 1rem;
 
             a {
-                border-bottom: 2px solid $wolox-blue;
+                border-bottom: 2px solid $xy-blue;
             }
         }
     }
@@ -56,16 +56,16 @@
             }
 
             label {
-                color: $wolox-gray;
+                color: $xy-gray;
             }
 
             select {
-                color: $wolox-dark;
+                color: $xy-dark;
                 width: 100%;
                 transition: all .2s;
                 background: transparent;
                 border: none;
-                border-bottom: 1px solid $wolox-gray;
+                border-bottom: 1px solid $xy-gray;
                 height: 100%;
 
                 option {
@@ -88,10 +88,19 @@
             max-width: 15vw;
         }
 
+
+        a {
+            text-decoration: underline;
+        }
+
         @include media('<=phone') {
             @include flex(column-reverse, space-between);
 
-            /* margin-top: 2rem; */
+            a {
+                margin-top: 1rem;
+            }
+
+
             .btn-form {
                 margin: .5rem 0;
                 height: 15%;

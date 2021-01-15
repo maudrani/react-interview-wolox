@@ -12,7 +12,7 @@ const RouteError = () => {
         <XYText
           size="1"
           weight="5"
-          content="blue-1[¡] blue-1[Oh ] green-1[oh] green-1[!]"
+          content="blue-1[¡] blue-1[Oh ] aqua-1[oh] aqua-1[!]"
         />
 
         <XYText
@@ -25,7 +25,7 @@ const RouteError = () => {
             className="title"
             size="4"
             weight="5"
-            content="blue-1[¿] dark-4[Wanna come back] green-1[?]"
+            content="blue-1[¿] dark-4[Wanna come back] aqua-1[?]"
           />
           <XYButton
             className="btn-volver"

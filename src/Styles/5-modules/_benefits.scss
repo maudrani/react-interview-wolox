@@ -28,7 +28,10 @@
         }
 
         @include media('<=phone') {
+            @include griding(.1fr 1fr, 1fr);
+            
             .promo-title {
+                font-size: xx-large;
                 padding: 2rem .5rem;
             }
         }

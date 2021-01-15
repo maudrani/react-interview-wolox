@@ -25,11 +25,11 @@
 
 .navbar .container {
     @include griding(1fr, 60% 40%);
-    
+
     padding: 4rem 6rem;
     transition: 0.4s;
 
-   
+
 
     .logo-container {
         height: 100%;
@@ -44,16 +44,16 @@
             transition: 0.1s;
             z-index: 5;
             min-width: 2rem;
+            background-color: rgba(255, 0, 0, 0);
+            border-style: none;
 
             &:hover {
                 &:active {
                     align-self: flex-start;
-                    color: $wolox-blue;
-                    transform: scale(1.5);
+                    color: $xy-blue;
+                    transform: scale(1.5) rotate(180deg);
                     opacity: 0%;
                 }
-
-                transform: rotate(180deg);
             }
 
         }
@@ -66,13 +66,18 @@
 
         .navbar-name {
             &:hover {
-                color: $wolox-blue;
+                color: $xy-blue;
             }
         }
 
         a:hover {
-            color: $wolox-blue;
+            color: $xy-blue;
         }
+    }
+
+    .hidden-menu-logo {
+        display: none;
+
     }
 
     @include media('<=tv') {
@@ -117,13 +122,13 @@
     }
 
     @include media('<=tablet') {
-        padding: 2rem 1rem;
+        padding: 2rem 0rem;
         display: flex;
         flex-direction: column;
         @include multiplyFontSize(1.3);
 
         .logo-container {
-            padding: 0 2rem;
+            padding: 0 1.7rem;
             width: 100%;
 
             img {
@@ -135,21 +140,36 @@
             }
         }
 
-        .menu-launched {
+        .menu-launched { 
             padding: 5rem 0 13rem 0;
             display: flex;
             top: 0%;
             transition: all .4s;
             flex-direction: column;
-            justify-content: space-around;
+            justify-content: center;
             background-color: white;
             height: 100vh;
             width: 100%;
             opacity: 100%;
 
+            li {
+                padding: 1rem 0;
+            }
+
             .reg-btn {
                 width: 100%;
                 @include multiplyFontSize(1.3);
+            }
+
+            .hidden-menu-logo {
+                display: flex;
+                position: absolute;
+                bottom: 10%;
+                width: 20%;
+
+                img {
+                    width: 100%;
+                }
             }
 
         }
@@ -167,8 +187,8 @@
     @include media ('<=phone') {
         .logo-container {
             img {
-                width: 40%;
-                min-width: 5rem;
+                width: 15%;
+                min-width: 2rem;
             }
         }
     }
