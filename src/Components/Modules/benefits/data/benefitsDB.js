@@ -1,34 +1,34 @@
-import timeFlex from "../../../../Assets/Ic_Hour.svg";
-import homeOffice from "../../../../Assets/Ic_HomeOffice.svg";
-import workshops from "../../../../Assets/Ic_Workshops.svg";
-import drinksSnacks from "../../../../Assets/Ic_DrinkSnacks.svg";
-import remoteWeek from "../../../../Assets/Ic_laptop.svg";
-import highTech from "../../../../Assets/Ic_brain.svg";
+import sketch from "../../../../Assets/sketch.svg";
+import computerDesk from "../../../../Assets/computerDesk.svg";
+import cubic from "../../../../Assets/cubic.svg";
+import artist from "../../../../Assets/artistPerson.svg";
+import idea from "../../../../Assets/idea.svg";
+import layers from "../../../../Assets/layers.svg";
 
 const benefitsDB = [
   {
-    title: "Flexibilidad Horaria",
-    img: timeFlex,
+    title: "Clean and faster development",
+    img: sketch,
   },
   {
-    title: "Home Office",
-    img: homeOffice,
+    title: "Every developer can work on every aspect",
+    img: computerDesk,
   },
   {
-    title: "Capacitaciones y Workshops",
-    img: workshops,
+    title: "Scalable environment",
+    img: cubic,
   },
   {
-    title: "Snacks, frutas y bebidas gratis",
-    img: drinksSnacks,
+    title: "Easy for every content creator",
+    img: artist,
   },
   {
-    title: "Semana Remota",
-    img: remoteWeek,
+    title: "Every CMS has its own community",
+    img: idea,
   },
   {
-    title: "Trabajar en últimas tecnologías",
-    img: highTech,
+    title: "Every CMS has been tested a million times",
+    img: layers,
   },
 ];
 

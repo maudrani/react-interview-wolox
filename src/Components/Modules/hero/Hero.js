@@ -1,21 +1,21 @@
 import React from "react";
-import WxText from "../../Basics/WxText";
-import img from "../../../Assets/Img-Hero/Ic_ilustra_Hero@3x.png";
+import XYText from "../../basics/XYText";
+import img from "../../../Assets/Img-Hero/Ic_ilustra_Hero.png";
 
 const Hero = ({forwaredRef}) => {
   return (
     <div ref={forwaredRef} className="hero">
       <div className="container r-c-c">
         <div className="title-container r-fs-c">
-          <WxText
+          <XYText
             size="3"
             weight="4"
             className="title"
-            content="dark-[Bienvenido a tu ] dark-2[Entrevista Técnica ] dark-[en ] green-1[Wolox]"
+            content="blue-2[XINERGY ] dark-[is a ] green-2[CMS ] dark-[Development agency]"
           />
         </div>
 
-        <div className="img-container r-c-fe">
+        <div className="img-container r-c-c">
           <img className="" alt="hero-img" src={img} />
         </div>
       </div>

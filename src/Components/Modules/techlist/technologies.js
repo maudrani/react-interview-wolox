@@ -1,6 +1,6 @@
 import LikeBtn from "./likeBtn";
 import { useLocalStorage } from "../../dB/useLocalStorage";
-import WxText from "../../Basics/WxText";
+import XYText from "../../basics/XYText";
 
 const Technologies = ({
   className,
@@ -13,24 +13,24 @@ const Technologies = ({
 
   return (
     <div className={`${className} `}>
-      <ul className="r-sa-c fw-2 fs-5 fc-gray descriptions">
+      <ul className="r-sa-c fw-2 fs-5 fc-blue descriptions">
         <li>Logo</li>
         <li>
-          <a onClick={sorter} className="fc-gray" href="#sort">
-            Tecnología
+          <a onClick={sorter} className="fc-blue" href="#sort">
+            Tech Name
           </a>
         </li>
-        <li>Autor</li>
-        <li>Lenguaje</li>
-        <li>Sector</li>
-        <li>Año</li>
-        <li>Licencia</li>
+        <li>Author</li>
+        <li>Language</li>
+        <li>Type</li>
+        <li>Year</li>
+        <li>Licence</li>
       </ul>
 
       <div className="dataPanel">
         {dataToList.length === 0 ? (
           <div className="r-c-c">
-            <WxText size="4" content="error-5[Sin resultados]" />
+            <XYText size="4" content="error-5[Sin resultados]" />
           </div>
         ) : (
           dataToList.map((item, key) => {
@@ -47,45 +47,45 @@ const Technologies = ({
                 </div>
                 <ul key={key} className="r-sa-c tech-data">
                   <li>
-                    <span className="inset-description fw-2 fc-gray">
+                    <span className="inset-description fw-2 fc-blue">
                       Logo:
                     </span>
                     <img src={item.logo} alt="logo-tech"></img>
                   </li>
                   <li>
-                    <span className="inset-description fw-2 fc-gray">
-                      Tecnoligía:
+                    <span className="inset-description fw-2 fc-blue">
+                      Tech Name:
                     </span>
                     {item.tech}
                   </li>
                   <li>
                     {" "}
-                    <span className="inset-description fw-2 fc-gray">
-                      Autor:
+                    <span className="inset-description fw-2 fc-blue">
+                      Author:
                     </span>
                     {item.author}
                   </li>
                   <li>
                     {" "}
-                    <span className="inset-description fw-2 fc-gray">
-                      Lenguaje:
+                    <span className="inset-description fw-2 fc-blue">
+                      Language:
                     </span>
                     {item.language}
                   </li>
                   <li>
-                    <span className="inset-description fw-2 fc-gray">
-                      Sector:
+                    <span className="inset-description fw-2 fc-blue">
+                      Type:
                     </span>
                     {item.type}
                   </li>
                   <li>
-                    <span className="inset-description fw-2 fc-gray">Año:</span>
+                    <span className="inset-description fw-2 fc-blue">Año:</span>
                     {item.year}
                   </li>
                   <li>
                     {" "}
-                    <span className="inset-description fw-2 fc-gray">
-                      Licencia:
+                    <span className="inset-description fw-2 fc-blue">
+                      Licence:
                     </span>
                     {item.license}
                   </li>
@@ -95,11 +95,11 @@ const Technologies = ({
           })
         )}
       </div>
-      <div className="r-c-c">
-        <WxText
+      <div className="results-amount r-c-c">
+        <XYText
           size="4"
           weight="5"
-          content={`Total de tecnologías: ${dataToList.length}`}
+          content={`blue-1[Results: ] dark-1[${dataToList.length}]`}
         />
       </div>
     </div>

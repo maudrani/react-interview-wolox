@@ -1,5 +1,5 @@
 import React from "react";
-import WxText from "../../Basics/WxText";
+import XYText from "../../basics/XYText";
 
 const Benefit = ({ title, image, className }) => {
   return (
@@ -8,7 +8,7 @@ const Benefit = ({ title, image, className }) => {
         <img alt="benefit-img" className="image" src={image} />
       </div>
       <div className="title-container c-fs-c ">
-        <WxText size="5" weight="3" content={title} className="title" />
+        <XYText size="5" weight="3" content={title} className="title" />
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import WxText from "../../Basics/WxText";
+import XYText from "../../basics/XYText";
 import BenefitList from "./benefit-list";
 
 const Benefit = ({ className, forwardedRef }) => {
@@ -7,10 +7,10 @@ const Benefit = ({ className, forwardedRef }) => {
   return (
     <div ref={forwardedRef} className={`benefits ${className}`}>
       <div className="container c-sa-c ">
-        <WxText
+        <XYText
           className=" promo-title"
-          size="4"
-          content="dark-3[Entre los beneficios que ofrecemos se encuentran ] blue-3[ ;)]"
+          size="1"
+          content="dark-3[Discover the ] green-2[benefits ] dark-3[of ] blue-3[CMS]"
         />
         <BenefitList className=" benefits-list" />
       </div>

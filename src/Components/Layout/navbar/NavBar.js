@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import WxButton from "../../Basics/WxButton";
-import Loader from "../../Basics/loader";
+import XYButton from "../../basics/XYButton";
+import Loader from "../../basics/loader";
 import logo from "../../../Assets/logo_full_color.svg";
-import "../../Basics/fontawesome";
+import "../../basics/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import WxText from "../../Basics/WxText";
+import XYText from "../../basics/XYText";
 
 const NavBar = ({
   className,
@@ -30,7 +30,7 @@ const NavBar = ({
   useEffect(() => {
     userData ? setIsLoggedIn(true) : setIsLoggedIn(false);
     isLoggedIn && setFavList(userData.favList);
-  }, [userData, isLoggedIn]);
+  }, [isLoggedIn, userData]);
 
   useEffect(() => {
     function onScroll() {
@@ -48,13 +48,22 @@ const NavBar = ({
     };
   }, [scrolled]);
 
-  const loadAndGo = ({ where = "", logOut = false }) => {
+  const loadAndGo = (where) => {
     setLoading(true);
     setTimeout(() => {
       setLaunchMenu(false);
       setLoading(false);
-      logOut && setUserData();
       history.push(`/${where}`);
+    }, 2500 * Math.random());
+  };
+
+  const LogOut = ({ redirect, to }) => {
+    setLoading(true);
+    setTimeout(() => {
+      setLaunchMenu(false);
+      setLoading(false);
+      setUserData("");
+      redirect && history.push(`/${to}`);
     }, 2500 * Math.random());
   };
 
@@ -96,17 +105,18 @@ const NavBar = ({
             launchMenu ? "menu-launched" : "menu-hided"
           }`}
         >
-          {!hideLinks && (
-            <li>
-              <a
-                onClick={(e) => setLaunchMenu(false) || ScrollTo(e)}
-                id="HeroRef"
-                href="#Inicio"
-              >
-                Inicio
-              </a>
-            </li>
-          )}
+          <li>
+            <a
+              onClick={(e) =>
+                setLaunchMenu(false) || isLoggedIn ? loadAndGo("") : ScrollTo(e)
+              }
+              id="HeroRef"
+              href="#Inicio"
+            >
+              Home
+            </a>
+          </li>
+
           {!hideLinks && (
             <li>
               <a
@@ -114,7 +124,7 @@ const NavBar = ({
                 id="BenefitsRef"
                 href="#Beneficios"
               >
-                Beneficios
+                Benefits
               </a>
             </li>
           )}
@@ -124,21 +134,23 @@ const NavBar = ({
                 onClick={(e) => setLaunchMenu(false) || loadAndGo("techlist")}
                 href="#Beneficios"
               >
-                Tecnologías
+                Technologies
               </a>
             </li>
           )}
           <li>
             {isLoggedIn && location.pathname === "/techlist" && (
               <div className="c-c-fe favs-container">
-                <div className="c-c-fe" onClick={() => setShowFavList(!showFavList)}>
+                <div
+                  className="c-c-fe"
+                  onClick={() => setShowFavList(!showFavList)}
+                >
                   <FontAwesomeIcon
                     icon={["fas", "heart"]}
                     size={favList.length === 0 ? "lg" : "2x"}
                     className={`menu-launcher fc-${
                       favList.length === 0 ? "gray" : "blue"
                     } `}
-                    
                   />
 
                   {favList.length !== 0 && (
@@ -156,8 +168,8 @@ const NavBar = ({
                           className="like-description fc-blue r-sb-c"
                         >
                           <p className="fs-6 fw-5 fc-dark">
-                            <strong className="fc-blue">{item}</strong> Se
-                            añadió a favoritos
+                            <strong className="fc-blue">{item}</strong> Added to
+                            your favlist
                           </p>
                         </div>
                       );
@@ -169,8 +181,11 @@ const NavBar = ({
           </li>
           <li>
             {isLoggedIn ? (
-              <a href="#logout" onClick={() => loadAndGo({ logOut: true })}>
-                <WxText
+              <a
+                href="#logout"
+                onClick={() => LogOut({ redirect: true, to: "" })}
+              >
+                <XYText
                   className="navbar-name"
                   size="5"
                   color="dark"
@@ -179,11 +194,11 @@ const NavBar = ({
                 />
               </a>
             ) : (
-              <WxButton
-                onClick={() => loadAndGo({ where: "login" })}
+              <XYButton
+                onClick={() => loadAndGo("login")}
                 className={`reg-btn`}
                 outline
-                content="Registro"
+                content="Sign Up"
                 fontSize="6"
                 fontWeight="1"
               />

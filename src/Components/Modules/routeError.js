@@ -1,6 +1,6 @@
 import React from "react";
-import WxText from "../Basics/WxText";
-import WxButton from "../Basics/WxButton";
+import XYText from "../basics/XYText";
+import XYButton from "../basics/XYButton";
 import { useHistory } from "react-router-dom";
 
 const RouteError = () => {
@@ -9,28 +9,28 @@ const RouteError = () => {
   return (
     <div className="routeError r-c-c">
       <div className="container c-sa-c">
-        <WxText
+        <XYText
           size="1"
           weight="5"
           content="blue-1[¡] blue-1[Oh ] green-1[oh] green-1[!]"
         />
 
-        <WxText
+        <XYText
           size="3"
           weight="5"
-          content="dark-4[No encontramos lo que buscabas ] blue-[:(]"
+          content="dark-4[We did'nt found what you were looking for ] blue-[:(]"
         />
         <div className="options c-sa-c">
-          <WxText
+          <XYText
             className="title"
             size="4"
             weight="5"
-            content="blue-1[¿] dark-4[Quieres Volver] green-1[?]"
+            content="blue-1[¿] dark-4[Wanna come back] green-1[?]"
           />
-          <WxButton
+          <XYButton
             className="btn-volver"
             fontWeight="3"
-            content="Si :("
+            content="Sure :("
             onClick={()=> history.push("/")}
           />
         </div>

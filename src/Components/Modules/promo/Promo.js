@@ -1,15 +1,11 @@
 import React from "react";
-import img from "../../../Assets/img_woloxer@3x.png";
-import WxText from "../../Basics/WxText";
-import WxButton from "../../Basics/WxButton";
+import img from "../../../Assets/img_social.jpg";
+import XYText from "../../basics/XYText";
+import XYButton from "../../basics/XYButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import "../../Basics/fontawesome";
+import "../../basics/fontawesome";
 
 const Promo = () => {
-
-  const sendToSocialMedia = () => {
-    window.open("https://twitter.com/wolox", "_blank");
-  } 
 
   return (
     <div className="promo">
@@ -18,10 +14,10 @@ const Promo = () => {
           <div className="socialmedia-container c-sa-c">
 
 
-            <WxText
-              className="title"
+            <XYText
+              className="title c-c-c"
               size="1"
-              content="green-1[350 + ] blue-1[Woloxers]"
+              content="white-1[We are more than ] green-1[450 + ]"
             />
 
             
@@ -31,18 +27,17 @@ const Promo = () => {
                 color="white"
                 className="fs-2 icon"
               />
-              <WxText
+              <XYText
                 className="username"
-                content="@Wolox"
+                content="@Xinergy"
                 size="5"
                 weight="3"
                 color="white"
               />
             </div>
-            <WxButton
-              onClick={sendToSocialMedia}
+            <XYButton
               className="btn-follow"
-              content="Siguenos"
+              content="Follow us"
               fontColor="white"
               fontWeight="2"
               fontSize="5"
@@ -54,10 +49,10 @@ const Promo = () => {
         </div>
 
         <div className="title-container r-c-c">
-          <WxText
+          <XYText
             size="3"
             weight="3"
-            content="dark-[Trabajamos para ] blue-1[convertir ] green-1[ideas ] dark-[en productos.]"
+            content="dark-[Our job is to ] blue-1[convert ] green-1[great ideas ] dark-[into experiences.]"
             className="title"
           />
         </div>

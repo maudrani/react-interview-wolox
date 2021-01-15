@@ -1,12 +1,12 @@
 /* eslint-disable default-case */
 import React, { useEffect, useState, lazy, Suspense } from "react";
 import Axios from "axios";
-import WxInput from "./Basics/WxInput";
-import WxList from "./Basics/WxList";
-import Loader from "./Basics/loader";
+import XYInput from "./basics/XYInput";
+import XYList from "./basics/XYList";
+import Loader from "./basics/loader";
 import Navbar from "./Layout/navbar/NavBar";
 
-const Technologies = lazy(() => import("./Modules/techlist/Technologies"));
+const Technologies = lazy(() => import("./Modules/techlist/technologies"));
 
 const TechList = ({ userData, setUserData }) => {
   const [techList, setTechList] = useState();
@@ -15,7 +15,7 @@ const TechList = ({ userData, setUserData }) => {
   const [sortedBySelector, setSortedBySelector] = useState([]);
   const [sortedByInput, setSortedByInput] = useState([]);
 
-  const techTypes = ["Todos", "Back-End", "Front-End", "Mobile"];
+  const techTypes = ["All", "Back-End", "Front-End", "Mobile"];
   const [alreadySorted, setAlreadySorted] = useState(false);
 
   const getData = () => {
@@ -75,7 +75,7 @@ const TechList = ({ userData, setUserData }) => {
   const filterByType = (input) => {
     let newList = [];
     if (sortedByInput.length !== 0) {
-      if (input === "Todos") {
+      if (input === "All") {
         newList = sortedByInput;
         setSortedBySelector([]);
       } else {
@@ -83,7 +83,7 @@ const TechList = ({ userData, setUserData }) => {
         setSortedBySelector(typeFilter(techList, input));
       }
     } else {
-      if (input === "Todos") {
+      if (input === "All") {
         newList = techList;
         setSortedBySelector([]);
       } else {
@@ -114,16 +114,16 @@ const TechList = ({ userData, setUserData }) => {
       <Suspense fallback={<Loader panel type="2" />}>
         <Navbar userData={userData} setUserData={setUserData} className="navbar" hideLinks />
         <div className="searchBar r-c-fe">
-          <WxInput
+          <XYInput
             color="blue"
-            label="Nombre"
+            label="Tech Name"
             fontWeight="5"
             name="tech-name"
             className="input"
             onChange={(e) => filterByInput(e.target.value)}
           />
-          <WxList
-            labelContent="Sector"
+          <XYList
+            labelContent="Type"
             labelFontSize="5"
             listFontSize="4"
             listFontWeight="5"

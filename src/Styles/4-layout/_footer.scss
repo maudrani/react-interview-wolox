@@ -1,15 +1,9 @@
 .footer {
-    background-image: url('../../Assets/Backgrounds/Bg_Footer@3x.png');
+    background-image: url('../../Assets/Backgrounds/Bg_Footer.svg');
     @include bgImageOptions(cover, no-repeat, bottom);
 
 
     @include media('<=laptop') {
-        background-image: url('../../Assets/Backgrounds/Bg_Footer@2x.png');
-        @include bgImageOptions(contain, repeat);
-    }
-
-    @include media('<=tablet') {
-        background-image: url('../../Assets/Backgrounds/Bg_Footer.png');
         @include bgImageOptions(contain, repeat);
     }
 
@@ -30,7 +24,8 @@
     }
 
     .logo-container img {
-        padding-bottom: 2.5rem;
+        padding-bottom: 2rem;
+        width: 10%;
     }
 
     @include media('<=laptop') {
@@ -40,8 +35,16 @@
     @include media('<=tablet') {
         @include multiplyFontSize(0.7);
 
+        @include griding(1fr .1fr .8fr .5fr, 1fr);
+
+        height: 80%;
+
         .main-title {
             padding-bottom: 2rem;
+        }
+
+        .logo-container img {
+            width: 30%;
         }
     }
 
