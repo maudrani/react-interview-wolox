@@ -1,6 +1,6 @@
 import React from "react";
 import XYText from "../../basics/XYText";
-import img from "../../../Assets/Img-Hero/Ic_ilustra_Hero.png";
+/* import img from "../../../Assets/Img-Hero/Ic_ilustra_Hero.webp"; */
 
 const Hero = ({forwaredRef}) => {
   return (
@@ -15,8 +15,7 @@ const Hero = ({forwaredRef}) => {
           />
         </div>
 
-        <div className="img-container r-c-c">
-          <img className="" alt="hero-img" src={img} />
+        <div className="img-container">
         </div>
       </div>
     </div>

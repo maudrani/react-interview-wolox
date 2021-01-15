@@ -2,9 +2,8 @@ html {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-size: $font-size-main; //Cambiar con media queries
+    font-size: $font-size-main;
     scroll-behavior: smooth;
-    /* overflow-x: hidden; */
 }
 
 
@@ -15,12 +14,6 @@ html {
     font-family: $font-family;
     transition: $transition-main;
     outline: none;
-
-    -webkit-transform: translateZ(0);
-    -moz-transform: translateZ(0);
-    -ms-transform: translateZ(0);
-    -o-transform: translateZ(0);
-    transform: translateZ(0);
 }
 
 a,

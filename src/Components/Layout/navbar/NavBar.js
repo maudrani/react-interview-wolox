@@ -81,7 +81,7 @@ const NavBar = ({
   return (
     <div
       ref={ref}
-      className={`navbar ${className} ${scrolled && "nav-scrolled "} ${
+      className={`navbar ${className} ${scrolled && " nav-scrolled "} ${
         hide && "nav-hided "
       }`}
     >
@@ -106,7 +106,7 @@ const NavBar = ({
         </div>
 
         <ul
-          className={`r-sb-c fs-5 fw-2  ${
+          className={`r-sb-c fs-5 fw-2 ${
             launchMenu ? "menu-launched" : "menu-hided"
           }`}
         >

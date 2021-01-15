@@ -2,8 +2,19 @@
     position: fixed;
     top: 0;
     width: 100vw;
+    max-width: 100%;
     z-index: 5;
     transition: all .3s;
+
+
+    * {
+        -webkit-transform: translateZ(0);
+        -moz-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        -o-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+
 }
 
 .nav-scrolled {
@@ -25,7 +36,7 @@
 }
 
 .navbar .container {
-    @include griding(1fr, 60% 40%);
+    @include griding(1fr, 1fr .8fr);
 
     padding: 4rem 6rem;
     transition: all 0.3s;
@@ -65,15 +76,9 @@
         transition: all .3s;
         opacity: 1;
 
-        -webkit-transform: translateZ(0);
-        -moz-transform: translateZ(0);
-        -ms-transform: translateZ(0);
-        -o-transform: translateZ(0);
-        transform: translateZ(0);
-
         .navbar-name {
             &:hover {
-                color: $xy-blue;
+                color: $xy-aqua;
             }
         }
 

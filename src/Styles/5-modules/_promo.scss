@@ -90,7 +90,7 @@
         }
 
         .img-container {
-            background-image: url('../../Assets/img_social.jpg');
+            background-image: url('../../Assets/img_social.webp');
             @include bgImageOptions(cover, no-repeat, top);
             img {
                 display: none;

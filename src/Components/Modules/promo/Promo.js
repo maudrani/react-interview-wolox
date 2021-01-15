@@ -1,5 +1,5 @@
 import React from "react";
-import img from "../../../Assets/img_social.jpg";
+import img from "../../../Assets/img_social.webp";
 import XYText from "../../basics/XYText";
 import XYButton from "../../basics/XYButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
