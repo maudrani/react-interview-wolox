@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useLocalStorage } from "./Components/dB/useLocalStorage";
-import loadable from '@loadable/component';
+import loadable from "@loadable/component";
 
-const Landing = loadable(() => import('./Components/Landing'));
-const Login = loadable(() => import('./Components/Login'));
-const TechList = loadable(() => import('./Components/TechList'));
-const RouteError = loadable(() => import('./Components/Modules/routeError'));
+const Landing = loadable(() => import("./Components/Landing"));
+const Login = loadable(() => import("./Components/Login"));
+const TechList = loadable(() => import("./Components/TechList"));
+const RouteError = loadable(() => import("./Components/Modules/routeError"));
 
 function App() {
   const [userData, setUserData] = useLocalStorage("user", "");

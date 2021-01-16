@@ -199,11 +199,11 @@ const NavBar = ({
           <li>
             {isLoggedIn ? (
               <a
+                className="navbar-name"
                 href="#logout"
                 onClick={() => LogOut({ redirect: true, to: "" })}
               >
                 <XYText
-                  className="navbar-name"
                   size="5"
                   color="blue"
                   weight="1"

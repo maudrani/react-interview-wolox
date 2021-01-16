@@ -46,6 +46,9 @@
                 }
 
                 .likes-container {
+                    width: 21rem;
+                    text-align: center;
+                    z-index: 8;
                     position: absolute;
                     padding: 3px;
                     top: 60%;
@@ -56,7 +59,8 @@
                     @include boxShadow();
 
                     @include media('<=tablet') {
-                        top: 30%;
+                        top: -300%;
+                        @include multiplyFontSize(0.9);
                     }
 
                     .close-favlist-container {
@@ -85,7 +89,6 @@
 
 
                     .like-description {
-                        width: 100%;
                         transition: all 0.5s;
                         position: relative;
                         padding: 15px;

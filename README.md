@@ -10,7 +10,13 @@
 
 ---
 
-**[Uploaded Version!](https://heuristic-jones-c88a9f.netlify.app)**
+**[Uploaded Version!](https://eager-bardeen-e5ff40.netlify.app)**
+
+<h4>Google Insights:</h4>
+<ul>
+<li>Mobile: <strong>96</strong></li>
+<li>Desktop: <strong>100</strong></li>
+</ul>
 
 ---
 
@@ -21,6 +27,8 @@
 <li>SASS.</li> 
 <li>React Forms.</li> 
 <li>React Context.</li>
+<li>React Lazy.</li>
+<li>APIs.</li>
 <li>CSS Grid.</li>
 <li>JS ECMAScript 6 +.</li>
 </ul>
